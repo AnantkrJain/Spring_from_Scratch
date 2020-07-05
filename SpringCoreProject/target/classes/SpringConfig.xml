@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+		<!-- Setter Injection / property injection -->
+		<bean id="employee" class="com.imarticus.demo.SpringCoreProject.Employee">
+			<property name="eid">
+				<value>101</value>
+			</property>
+			<property name="name">
+				<value>Anant</value>
+			</property>
+			<property name="salary">
+				<value>17.5</value>
+			</property>
+		</bean>
+		
+		<!-- Constructor Injection -->
+		<bean id="employee2" class="com.imarticus.demo.SpringCoreProject.Employee">
+			<constructor-arg value="102" type="int"></constructor-arg>
+			<constructor-arg value="Arpita" type="java.lang.String"></constructor-arg>
+			<constructor-arg value="10.5" type="double"></constructor-arg>
+		</bean>
+		
+</beans>
