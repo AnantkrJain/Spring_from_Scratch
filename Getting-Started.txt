@@ -1,0 +1,156 @@
+SPRING FRAMEWORK
+
+Spring_from_Scratch with Eclipse:-
+
+1. File->New->Maven Project-> New Maven Project
+								Catalog: Internal
+								Filter:
+									Group Id:	 org.apache.maven.archetypes
+									Artifact Id: maven-archetype-quickstart
+									Version:	 1.1
+										->
+								
+								Group Id:    com.imarticus.demo
+								Artifact Id: SpringCoreProject
+									->Finish
+
+2. Bydefault App.java file is created and as of now, it is not an spring project.
+
+3. Run App.java as Java Application.
+
+4. Add the spring dependency in pom.xml:
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>5.2.5.RELEASE</version>
+		</dependency>
+
+
+5. Since Spring framework is an application framework and inversion of control container for Java plateform. Now, we will understand the meaning of IOC.
+	
+	Create new class "Employee.java" and create variable of custom data type "Department" in Employee class.
+	
+	+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	Currently, Employee.java class is dependent on Department.java class. Now, spring will work as container and will contain all the objects. So, instead of depending on each other, now classes will depend only on container having all objects.
+
+	Source code(*.java) does not go to production, .class file goes to production which is generated after compilation. Since container is not java file, it is XML file. Therefore, no compilation is needed and it will directly run.
+	
+	This is why container is called IOC and it performs "Dependency Injection".
+	
+6. There are two ways to configure Java application to spring-
+		XML Based Configuration
+		Annotation Based Configuration
+		
+	+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+7. XML Based Configuration-
+		Right click on 'src/main/java'->New->other->XML File ->File name: SpringConfig.xml:
+			
+			Syntax:
+			<beans xmlns="http://www.springframework.org/schema/beans"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:schemaLocation="http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+				<bean id="[object name]" class="[Fully Qualified Name]"></bean>
+			</beans>
+		
+8. In Employee.java:
+		create simple void method and comment everything else.
+
+9. In App.java:
+		Use class 'ApplicationContext' from spring framework with 'ClassPathXmlApplicationContext' method for XML based configuration. 'ApplicationContext' class provides configuration for an application. 'ClassPathXmlApplicationContext' method will create new instance for bean-style configuration. 
+		
+		Proivde spring configuration XML file within the method. 'getBean' method will return the specific bean as per the requirement using bean id.
+		
+				Syntax:
+				[Class name] [object] = [Typecasting] [ApplicationContext object].[getBean method]([bean id])
+				
+				#Typecasting is required as there is no guarantee that getBean method will return only that bean which you have specified.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		"Bean" is nothing but an object having 'id' and 'class' tag.
+		
+		"pom.xml" has only one tag named 'project' tag.It may or may not contain sub tags. Everything will be related to maven only.
+		
+		"[Spring Configuration file].xml has only one tag named 'beans'. It may have subtag named 'bean'. Everything will be related to spring framework only.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Dependency Injection: -
+
+	It is a fundamental aspect of spring framework through which the Spring container "injects" objects into other objects or "dependencies". This allows loose coupling of components and moves the responsibility of managing components onto the container.
+
+		Tight Coupling- When object of one class is created into another class, it is called tight coupling.
+		
+	Ideally, Java program should be loosely coupled that means one class should be minimally dependent on another classes. This is achieved using IOC container.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#We create the dependency in spring configured XML file using 'bean' tag and then inject that dependency using 'getBean' method in specific class. 	
+		
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Dependency Injection can be achieved in two ways:
+		1. By setter method (Setter Injection or Property Injection)
+		2. By Constructor (Constructor Injection)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+10. Setter Injection - 
+		Create getters, setters and toString method in Employee.java for required variables.
+		
+		Correspondingly provide values for variables in [spring configuration].xml file:
+		
+			Syntax:
+			<bean id="employee" class="com.imarticus.demo.SpringCoreProject.Employee">
+				<property name="eid">
+					<value>101</value>
+				</property>
+				<property name="name">
+					<value>Anant</value>
+				</property>
+				<property name="salary">
+					<value>17.5</value>
+				</property>
+			</bean>
+		
+		Make sure you have provided object for the same using dependency injection.
+
+11. Constructor Injection - 
+		Create zero-argument constructor and parameterized constructor in Employee.java.
+		
+		Correspondingly provide values for variables in [spring configuration].xml file:
+		
+		Syntax:
+		<bean id="employee2" class="com.imarticus.demo.SpringCoreProject.Employee">
+			<constructor-arg value="102" type="int"></constructor-arg>
+			<constructor-arg value="Arpita" type="java.lang.String"></constructor-arg>
+			<constructor-arg value="10.5" type="double"></constructor-arg>
+		</bean>
+		
+		Make sure you have provided object for the same using dependency injection.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Dependenices can be injected for:
+	1. Primitive Data Values
+	2. String Data Values
+	3. Object Values(Inner Beans)
+	4. Collection Values
+	5. Other types of values
+---------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
