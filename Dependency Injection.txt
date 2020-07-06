@@ -1,0 +1,116 @@
+Dependenices can be injected for:
+	1. Primitive Data Values
+	2. String Data Values
+	3. Object Values(Inner Beans)
+	4. Collection Values
+	5. Other types of values
+	
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#In case of errors, as long as 'INFO:[]' is there, your app is working fine. Exact error will be there in the line of 'WARNING:[]'.
+
+12. File->New->Class ->Department.java
+
+	Create dependency for the same.
+
+		Injecting Collections using constructor injection-
+			
+			Syntax:
+			<bean id="department" class="com.imarticus.demo.SpringCoreProject.Department">
+				<property name="did" value="10"></property>
+				<property name="name" value="Full Stack Java Developer"></property>
+				<property name="functions">
+					<list>
+						<value>"Spring Framework - Boot, AOP"</value>
+						<value>"FrontEnd - Angular"</value>
+						<value>"Deployment - AWS"</value>
+					</list>
+				</property>
+			</bean>
+
+		Injecting Collections using constructor injection-
+			
+			Syntax:
+			<bean id="department2" class="com.imarticus.demo.SpringCoreProject.Department">
+				<constructor-arg value="20" type="int"></constructor-arg>
+				<constructor-arg value="Marketing" type="java.lang.String"></constructor-arg>
+				<constructor-arg>
+					<list>
+						<value>"Sales"</value>
+						<value>"Distributions"</value>
+						<value>"Promotions"</value>
+					</list>
+				</constructor-arg>
+			</bean>
+		
+		Inject the dependency using collection values.
+13. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Inner Benas: - 
+	Inner beans are the beans that are defined within the scope of another bean.
+	
+	Syntatically, a <bean/> element inside the <property/> or <constructor-arg/> elements is called inner bean.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+File->New->class ->Country.class and define variable of city type. Now, you need to create the city.class.
+	Hence, City(inner bean) is part of Country(outer bean).
+	
+	Create dependency for the same.
+	
+		Syntax:
+		<bean id="country" class="com.imarticus.demo.SpringCoreProject.Department">
+			<property name="city">
+				<bean id="city" class="com.imarticus.demo.SpringCoreProject.Department"></bean>
+			</property>
+		</bean>
+		
+	Inject the dependency using inner bean values.
+	
+14. +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Autowiring :-
+	It is used to inject object dependency implicitly in java spring applications.
+		
+		1. It internally uses constructor injection or setter injection.
+		2. It is used to inject object reference.
+		3. It can not be used to inject primitive and string type values.
+		4. It needs less code to inject dependency.
+		
+	Mode: 
+	1. byName - id name of inner bean and class field name in outer bean should be same.
+	2. byType
+	3. no
+	4. constructor
+	
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	Syntax:
+	<bean id="city" class="com.imarticus.demo.SpringCoreProject.City"></bean>
+	<bean id="country" class="com.imarticus.demo.SpringCoreProject.Country" autowire="byName"></bean>
+
+15. Issues :-
+
+	1. 
+	2. ClassNotFoundException - If you provide wrong fully qualified name in the bean in spring configuration XML, you will get this exception.	
+	3. NullPointerException - If you use auto-wiring's byName mode and don't provide id name same as class field name, you will get this exception.
+	4. NoSuchBeanDefinitionException - If you create dependency in container with some id and try to inject with some other name in App.java, you will get this exception.
+	
+16. Ways to create spring project -
+	
+	1. Create maven project, add spring dependency in pom.xml and write your java code.
+	2. Go to 'http://start.spring.io' and use required functionalities in spring initializr to generate project.
+	3. Create spring project using command line interface.
+	
+	Ways to configure spring project - 
+	
+	1. XML Based Configuration
+	2. Annotation Based Configuration
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
