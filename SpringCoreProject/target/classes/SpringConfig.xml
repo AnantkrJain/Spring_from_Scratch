@@ -16,11 +16,50 @@
 			</property>
 		</bean>
 		
-		<!-- Constructor Injection -->
+		<!-- Constructor Injection  using setter injection-->
 		<bean id="employee2" class="com.imarticus.demo.SpringCoreProject.Employee">
 			<constructor-arg value="102" type="int"></constructor-arg>
 			<constructor-arg value="Arpita" type="java.lang.String"></constructor-arg>
 			<constructor-arg value="10.5" type="double"></constructor-arg>
 		</bean>
+		 
+		 <!-- Injecting Collections using property injection-->
+		 <bean id="department" class="com.imarticus.demo.SpringCoreProject.Department">
+			<property name="did" value="10"></property>
+			<property name="name" value="Full Stack Java Developer"></property>
+			<property name="functions">
+				<list>
+					<value>"Spring Framework - Boot, AOP"</value>
+					<value>"FrontEnd - Angular"</value>
+					<value>"Deployment - AWS"</value>
+				</list>
+			</property>
+		</bean>
 		
+		<!-- Injecting Collections using constructor injection-->
+		<bean id="department2" class="com.imarticus.demo.SpringCoreProject.Department">
+			<constructor-arg value="20" type="int"></constructor-arg>
+			<constructor-arg value="Marketing" type="java.lang.String"></constructor-arg>
+			<constructor-arg>
+				<list>
+					<value>"Sales"</value>
+					<value>"Distributions"</value>
+					<value>"Promotions"</value>
+				</list>
+			</constructor-arg>
+		</bean>
+		
+		<!-- 
+		 Injecting Inner beans using traditional method 
+		 
+		<bean id="country" class="com.imarticus.demo.SpringCoreProject.Country">
+			<property name="city">
+				<bean id="city" class="com.imarticus.demo.SpringCoreProject.City"></bean>
+			</property>
+		</bean>
+		 -->
+		
+		<!-- Injecting Inner beans using auto-wiring's byName mode-->
+		<bean id="city" class="com.imarticus.demo.SpringCoreProject.City"></bean>
+		<bean id="country" class="com.imarticus.demo.SpringCoreProject.Country" autowire="byName"></bean>
 </beans>
