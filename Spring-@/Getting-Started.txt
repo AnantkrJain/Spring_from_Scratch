@@ -1,0 +1,87 @@
+SPRING: ANNOTATION BASED CONFIGURATION -
+
+1. File->New->Maven Project->New Maven Project
+							Catalog: Internal
+								Filter:
+									Group Id:	 org.apache.maven.archetypes
+									Artifact Id: maven-archetype-quickstart
+									Version:	 1.1
+										->
+								
+								Group Id:    com.imarticus.demo
+								Artifact Id: SpringAnnotationProject
+									->Finish
+									
+2. Create a new class Employee.java
+
+3. In App.java, use class 'AnnotationConfigApplicationContext' and give 'App.class' as argument itself. Now it will work the same as Spring configured XML file. This class allows for completely XML-free usage of the Spring container.
+
+4. Now create object of Employee class, use 'getBean' method and give 'Employee.class" as an argument instead of bean id.
+
+5. If you don't create spring configured XML file, every business class needs to be 'Component' annotated and the class having main method must be 'Configuration' and 'ComponentScan' annotated.
+
+			-> Now whole application is turned into spring application having annotation configuration. Run the application as Java application.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+There is another way to create spring application having annotation based configuration. Configuration file can be created seperately instead of making 'App.java' as 'Configuration' annotated and classes need not to be 'Component' annotated:
+
+1. Create 'Config.java' class - 
+	
+	@Configuration
+	public class Config{
+				
+		@Bean
+		public Employee employee() {
+			system.out.println("Employee Bean");	//Need to check either this class is getting used or not.
+			return new Employee();
+		}
+	} 
+			
+	Run the application as Java application.
+	
+2.	In App.java, instead of providing 'App.class' as argument in AnnotationConfigApplicationContext constructor, 'Config.class' can be registered seperately. Use 'register' and 'refresh' method of class.
+
+	Again run the application. You will get the same output.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Only one file can be 'Configuration' annotated. When class is made 'Configuration' annotated, class itself is registered as a bean definition and all declared @Bean methods within the class are also registered as bean definition. 
+
+1.	@Configuration indicates that it's primary purpose is as source of bean definitions.
+	
+2.	@Bean annotation indicates that a method instantiates, configures and initializes a new object to be managed by the Spring IoC container.
+
+#Beans in spring are similar as objects in java and Components in spring are similar as classes in java. In @ComponentScan, package name can be passed as arguments. Then all the classes within the package will be scanned.
+		Syntax: @ComponentScan("[PackageName]")
+		
+3.	@Required annotation applies to bean property setter methods. It indicates that the affected bean property must be populated at configuration time.
+
+4.	@Autowired annotation applies to constructor mainly.
+
+#Annotations are used for methods and constructors having certain arguments and returning some values because annotations are used for IoC.
+	
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Inner Bean :-
+
+1. Crete class Department.java and create a variable in Employee.java of Department type. Department as inner bean present in Employee as outer bean.
+
+2. In Config.java, create bean of department for getting an object same as of Employee.
+
+3. As a programmer you have to decide which bean is more important. Set the important one as @Primary and @Qualifier("main").
+
+4. For genric types variables, you can use @Autowired.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+ 
