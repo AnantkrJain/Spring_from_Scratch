@@ -1,0 +1,45 @@
+Spring CLI - 
+
+Spring CLI official material :-
+	https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-cli.html#cli-installation
+	
+1. Spring CLI Download :-
+		https://repo.spring.io/release/org/springframework/boot/spring-boot-cli/2.3.1.RELEASE/spring-boot-cli-2.3.1.RELEASE-bin.zip
+
+2. In CMD, use command "spring --version" and get the output as "Spring CLI v2.3.1.RELEASE".
+
+3. Syntax: spring [command] [args] 
+	
+4. Create a file App.java. In cmd, go to the location of the file and then use command "spring run App.java"
+
+5. RequestMapping Annotation is required to see the output on the browser.
+
+6. To run the application on different port number, use command:
+		spring run App.java -- --server.port=8081
+	#Internally, CLI uses servlet as every time you refresh browser, you will see the output in CLI.
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Packaging the app - 
+
+1. For java applications, there are three types of packaging-
+
+	1. JAR(Java Archive)
+	2. WAR(Web Archive)
+	3. EAR(Enterprise Archive)
+
+2. If you want to send your application to someone else, you can not send your source code because to run that, you will need spring framework. Therefore, File must be packed and be running on everyone's system.
+
+3. The created app can be packed into jar file using command:
+		spring jar [FileName_w/o_Ext].jar [Filename_w/o_Ext].java
+		
+		This command will create two files - [FileName].jar and [FileName].jar.original. This '[FileName].jar' will run on every system as long as JVM is available on the system.
+
+4. To run jar file, use command:
+		java -jar [FileName].jar
+
+5. If you want to create the jar of particular project, use command in that specific folder:
+		spring jar *.java
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
