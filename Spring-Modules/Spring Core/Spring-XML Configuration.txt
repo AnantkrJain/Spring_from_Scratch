@@ -1,0 +1,36 @@
+1.	Create a new Java project named "spring-demo-one".
+
+2.	Add the external JARs or create seperate folder libs having JARRs to add JARs of "spring-framework-5.2.7-Release".
+
+3.	Create new class BaseballCoach.java and MyApp.java as main class, create the object of BaseballCoach.java in MyApp.java and run the program.
+
+4.	Create interaface Coach.java which can be implemented by multiple classes. Run the program.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Spring Container - 
+	 
+	Primary functions-
+		1.	Create and manage objects(Inversion of Control)
+		2.	Inject object's dependency(Dependency Injection)
+	
+Configuring Spring Container -
+
+	1.	XML configuration file
+	2.	Java Annotations
+	3.	Java Source Code
+	
+Spring Development Process -
+	
+	1.	Configure your spring beans	----- [].xml file
+	2. 	Create a spring container	----- ApplicationContext and special implementations are ClassPathXmlApplicationContext, AnnotationConfigApplicationContext, GenricWebApplicationContext.
+	3.	Retrieve beans from Spring Container	----- Use getBean method to retrieve bean from spring container
+	
+Spring Beans -
+	
+	1.	A spring bean is simply a java object. When java objects are created by the spring container, then spring refers to them as "Spring Beans".
+	2.	The objects that form the backbone of your application and that are managed by IoC container are called beans.
+	3.	A bean is an object that is intantiated, assembled and managed by spring IoC container.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
