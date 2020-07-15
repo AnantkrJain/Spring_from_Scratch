@@ -106,4 +106,37 @@ Spring Beans -
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Spring Dependency Injection :-
+
+	Injection Types -
+	
+		There are many types of injection with Spring. We will cover the two most common -
+			1.	Constructor Injection
+			2.	Setter Injection
+			
+		Constructor Injection -
+		
+		1.	Define the dependency interface and class.
+		2.	Create a constructor in your class for injections.
+		3.	Configure the dependency injection in Spring config file.
+		
+		Setter Injection -
+		
+		1.	Create setter methods in your class for injections.
+		2.	Configure the dependency injection in Spring config file.
+		
+		Injecting Literal Values -
+		
+		1.	Create setter methods in your class for injections.
+		2.	Configure the injection in Spring config file.
+		
+		Injecting values from Properties file-
+
+		1.	Create Properties file.
+		2.	Load Properties file in Spring configuration file
+		3.	Reference values from Properties file
+		
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
