@@ -20,3 +20,66 @@ Java Annotations :-
 Spring Dependency Injection with Annotation and Autowiring -
 
 	For dependency, Spring can use auto wiring. Spring will look for a class the matches the property; matches by type[class or interface]. Spring will inject it hence it is autowired.
+
+	Autowiring Injection Types -
+		1.	Constructor Injection
+		2.	Setter Injection
+		3.	Field Injection
+		
+		Constructor Injection -
+			1.	Define the dependency interface and class.
+			2.	Create a constructor in your class for injection.
+			3.	Configure the dependency injection with @Autowired annotation.
+		
+		# As of Spring Framework 4.3, an @Autowired annotation such a constructor is no longer necessary if target bean defines only one constructor to begin with. However, if several constructors are available, atleast one must be annotated to teach the container which one to use.
+
+		Setter Injection -
+			1.	Create setter methods in your class for injection.
+			2.	Configure the dependency injection with @Autowired annotation.
+			
+		Field Injection -
+			Inject dependencies by setting field values on your class directly, even private fields. [Accomplished by Java Reflection]
+			
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+Spring Bean Scopes and Lifecycle :-
+
+	Scope - Scope refers to the lifecycle of the bean.
+				1.	How long does the bean live.
+				2.	How many instances are created.
+				3. 	How is the bean shared.
+				
+	# Default scope for bean is singleton.
+
+	Singleton - 
+		
+		1. 	Spring container creates only one instance of the bean bydefault.
+		2.	It is cached in memory.
+		3. 	All requests for the bean will return a shared reference to the same bean. (that's why bean is stateless)
+		
+	Scope				Description
+	
+	singleton			Create a single shared instance of the bean. (staeless)
+	prototype			Creates a new bean instance for each container request. (stateful)
+	request				Scoped to an HTTP web request. Only used for web apps.
+	session				Scoped to an HTTP web session. Only used for web apps.
+	global-session		Scoped to a global HTTP web session. Only used for web apps.
+		
+	Bean Lifecycle Methods -
+
+	Container Started --------> Bean Instantiated ------> Dependencies Injected ------> Internal Spring Processing -------> Your Custom Init Method --------> Bean is Ready for use | Container is shutdown
+	-----------------> Your Custom Destroy Methods --> STOP
+	
+		You can add custom code during bean initialization and bean destruction.
+			1.	Calling custom business logic methods
+			2.	Setting up/Clean up handles to resources(db, socket, files etc)		
+			
+	Development Process -
+	1.	Define your methods for init and destroy.
+	2.	Add annotations: @PostConstruct and @PreDestroy
+			
+		1. 	Both the methods can have any access modifiers(public, protected or private)
+		2. 	The method can have any return type.
+		3. 	The method can have any method name.
+		4.	The method can't accept any arguments.
+	
