@@ -1,0 +1,22 @@
+Java Annotations :-
+
+	1.	Special labels/markers added to Java class
+	2.	Provide meta-data about class
+	3.	Processed at compile-time or run-time for special processing
+	
+	#If you have 100 beans or 1000 beans, it will be very verbose to write each and every bean in config file. Annotation minimizes the XML configuration.
+	
+	#Spring will scan your java classes for @Component annotation and automatically register the beans in spring container.
+	
+	Development Process -
+		1.	Enable component scanning in spring config file
+		2. 	Add the @Component Annotation to your java class
+		3. 	Retrieve bean from spring container.
+		
+		# If we don't provide any bean id, default bean id will be generated. Bean id will be the class name having first letter lower-case.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Spring Dependency Injection with Annotation and Autowiring -
+
+	For dependency, Spring can use auto wiring. Spring will look for a class the matches the property; matches by type[class or interface]. Spring will inject it hence it is autowired.
