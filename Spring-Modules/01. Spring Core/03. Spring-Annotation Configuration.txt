@@ -82,4 +82,56 @@ Spring Bean Scopes and Lifecycle :-
 		2. 	The method can have any return type.
 		3. 	The method can have any method name.
 		4.	The method can't accept any arguments.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Spring Configuration for Java Code(no XML) :-
+
+	Instead of configuring Spring container using XML, configure the spring container with Java code.
+	
+	Development Process -
+		1.	Create a Java class and annotate as @Configuration
+		2.	Add component scanning support: @ComponentScan (optional)
+		3.	Read Spring Java configuration file
+		4.	Retrieve bean from Spring container.
+	
+	********************************************************************************************************************************************************************************************************
+	
+	3 Ways of configuring spring container -
+	
+		1.	Full XML Configuration
+		2.	XML Component Scan
+		3.	Java configuration Class
+		
+	********************************************************************************************************************************************************************************************************
+	
+	Spring Beans with Java Code(no XML) :-
+	
+		Development Process -
+			1.	Define method to expose bean
+			2.	Inject bean dependencies
+			3.	Read Spring Java configuration class
+			4.	Retrieve bean from spring container.
+		
+		Q->	How @Bean works behind the scenes?
+		A->	If method has bean annotation, the annotation will intercept all calls to the method. Since no scope is specified, the annotation uses singleton scope. Behind the scenes, during the @Bean interception, it will check in-memory of the Spring container (applicationContext) and see if this given bean has already been created. 
+				If this is the first time the bean has been created then it will execute the method as normal. It will also register the bean in the application context. The next time method is called, @Bean annotation will check in-memory of spring container and see if this given bean is already created. Since bean has already been created, then it will immediately return the instance from memory. 
+				
+	Injecting Values from properties files -
+	
+		Development Process -
+			1.	Create Properties File
+			2.	Load properties file in Spring config
+			3.	Reference values from Properties File
+			
+		# In Spring version 4.3+, @PropertySource("classpath:[FileName].properties") will work fine but for previous versions, you have to add dependency for the same.
+			@Bean
+			public static PropertySourcesPlaceholderConfigurer
+                    propertySourcesPlaceHolderConfigurer() {
+						return new PropertySourcesPlaceholderConfigurer();
+			}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			
 	
