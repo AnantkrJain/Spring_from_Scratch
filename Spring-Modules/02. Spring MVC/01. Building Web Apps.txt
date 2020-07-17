@@ -1,0 +1,104 @@
+Spring MVC	:-
+
+	1.	Framework for building web applications in Java.
+	2.	Based on Model-View-Controller design pattern
+	3.	Leverages features of Core Spring Framework (IoC, DI)
+	
+	Model-View-Controller(MVC) -
+	
+		WEB BROWSER -----------> 	Front Controller ------> Controller --------> View Template -----------> 	WEB BROWSER
+		
+	Benefitss -
+		
+		1.	Spring way of building web app UIs in Java
+		2.	Leverages a set of reusable UI components.
+		3.	Help manage application state for web requests
+		4.	Process form data: validation, conversion etx
+		5.	Flexible configuration for the view layer
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+Behind the scenes -
+		
+	Components of Spring MVC Application -
+
+		1.	A set of web pages to layout UI components
+		2.	A collection of Spring Beans(controllers, services etc.)
+		3.	Spring configuration(XML, Annotations or Java)
+		
+	Front Controller -
+		
+		Front Controller is known as DispatcherServlet. It is part of Spring framework and already developed by Spring Dev Team.
+		
+	Developer will create -
+		1.	Model Objects
+		2.	View Templates
+		3.	Controller classes
+		
+		Controller -
+			1.	Code created by developer
+			2.	Contains your business logic
+					Handle the request
+					Store/retrieve data(db, web service...)
+					Place data in model
+			3.	Send to appropriate view template
+			
+		Model -
+			1.	It contains the data.
+			2.	Store/retrieve data via backend systems
+					database, web services etc...
+					Use a spring bean if you like
+			3.	Place your data in the model
+					Data can be any Java object/collection
+					
+		View Template -
+			1.	Spring MVC is flexible
+					Supports many view templates
+			2.	Most common is JSP(Java Server Pages) + JSTL(JSP Standard Tag Library)
+					Other view templates supported - Thymeleaf, Groovy, Velocity, Freemarker etc...
+			3.	Developer creates a page
+					Displays data
+			
+	Dev Environment Checkpoint -
+		1.	Apache Tomcat
+		2.	Eclipse(Java EE Version)
+		3.	Connected Eclipse to Tomcat
+		
+		4.  Spring MVC Starter Files
+		5.	Spring JAR Files
+		
+		Spring MVC Configuration Process -
+			
+			Add configurations to file- WEB-INF/web.xml
+			1.	Configure Spring MVC Dispatcher Servlet.
+			2.	Set up URL mapppings to Spring MVC Dispatcher Servlet.
+			
+			Add configurations to file- WEB-INF/spring-mvc-demo-servlet.xml
+			3.	Add support for Spring component scanning.
+			4.	Add support for conversion, formatting and validation.
+			5.	Configure Spring MVC View Resolver
+			
+			# When your app provides a 'view' name, Spring MVC will-
+				prepend the suffix
+				append the suffix
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	File --> New --> Dynamic Web Project --> Add spring-framework-[version].RELEASE JARs in 'lib' folder. Add JSP+JSTL JARs also in 'lib' folder.
+	
+	Copy starter config files(web.xml and spring-mvc-demo-servlet.xml) and paste in 'WEB-INF' folder.
+	
+	Create 'view' folder in in 'WEB-INF' folder.
+				
+			
+				
+				
+		
+			
+			
+			
+			
+			
+			
+			
+			
