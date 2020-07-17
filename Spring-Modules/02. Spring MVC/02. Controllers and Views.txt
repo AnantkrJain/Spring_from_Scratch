@@ -1,0 +1,105 @@
+Spring Home Controller and View :-
+
+	Development Process -
+		1.	Create Controller Class
+		2.	Define Controller Method
+		3.	Add Request Mapping to Controller Method
+		4.	Return View Name
+		5.	Develop View Page 
+		
+	Issues -
+		1.	Make sure you are accessing the correct URL
+		2.	Make sure your package name is consistent
+		3.	Reimport project into eclipse
+		4.	Clean Tomcat cache in server tab of eclipse
+		5. 	Import the project in new workspace
+		
+		6. If port is already in use, then to kill the process on port:
+		
+			GUI Way -
+				1. On MS Windows, select Start > All Programs  > Accessories > System Tools >Resource Monitor
+				2. Expand the Network Tab
+				3. Move to the section for Listening Ports
+				4. Look in the Port column and scroll to find entry for port 8080
+				5. Select the given process and delete/kill the process
+				6. Return back to Eclipse and start the Tomcat Server, it should start up now.
+			
+			Command Line Way -
+				Find the process:
+					netstat -o -n -a | findstr 0.0:8080
+				Kill the process:
+					taskkill /F /PID [Process Id]
+	
+	Reading HTML Form Data -
+		
+		Development Process -
+			1.	Create Controller Class
+			2.	Show HTML Form
+					Create controller method to show HTML form
+					Create View Page for HTML form
+			3.	Process HTML Form
+					Create controller method to process HTML form
+					Develop View Page for Confirmation
+					
+	Adding data to Spring Model -
+	
+		The model is container for your spring application.
+		
+		In your Controller	
+			1.	You can put anything in the model.
+			2.	strings, objects, info from database etc.
+			
+		Your view page (JSP) can access data from the model.
+		
+		Development Process-
+			1.	We want to create a new method to process form data
+			2.	Read the form data: student's name
+			3.	Convert the name to upper case
+			4.	Add the uppercase version to the model
+			
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Deploying to Tomcat using WAR files :-
+
+	When you deploy your Java web apps, you can make use of a Web Application Archive (WAR) file.
+
+	The Web Application Archive (WAR) file is a compressed version of your web application. It uses the zip file format but the file has the .war extension.
+
+	If you are using Eclipse, then the best way to visualize it is think of your "WebContent" directory being compressed as a zip file with the .war extension.
+
+	This includes all of your web pages, images, css etc. It also includes the WEB-INF directory which includes your classes in WEB-INF/classes and supporting JAR files in WEB-INF/lib.
+
+	The WAR file format is part of the Java EE / Servlet specification. As a result, all Java EE servers support this format (ie jboss, weblogic, websphere, glassfish and tomcat).
+
+	How to create a WAR file in Eclipse. Deploy the WAR file on Tomcat :-
+
+		1. In Eclipse, stop Tomcat
+
+		2. Right-click your project and select Export > WAR File
+
+		3. In the Destination field, enter: [any-directory]/mycoolapp.war
+
+		4. Outside of Eclipse, start Tomcat
+				If you are using MS Windows, then you should find it on the Start menu
+
+		5. Make sure Tomcat is up and running by visiting: http://localhost:8080
+
+		6. Deploy your new WAR file by copying it to [tomcat-install-directory]\webapps
+				Give it about 10-15 seconds to make the deployment. You'll know the deployment is over because you'll see a new folder created in webapps with your WAR file name.
+
+		7. Visit your new app. If your war file was: mycoolapp.war then you can access it with:  http://localhost:8080/mycoolapp/
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
