@@ -1,0 +1,44 @@
+Topics -
+	1.	Hibernate
+	2.	Benifits of Hibernate
+	3.  Code Snippets
+	
+Hibernate :-
+	A framework for persisting/saving Java objects in a database
+		www.hibernate.org
+		
+	Your Java App ----> Hibernate ----> Database
+	
+Benefits of Hibernate :-
+	1.	Hibernate handles all of the low-level SQL
+	2.	Minimizes the amount of JDBC code you have to develop
+	3.	Hibernate provides the Object-to-Relational Mapping(ORM)
+			# The developer defines mapping between Java class and databse table
+			
+	Development Process -
+		1.	Create Java object
+		2.  save it to database
+				session - special Hibernate object
+				save() - Hibernate will store the data into the database.
+				# Hibernate returns the primary key after saving it.
+		3. Retrieve from the database using the primary key.
+				
+	# 	In the days of JDBC, it was mandatory to manually write the SQL code, manually set those values and manually execute those SQL statements. Hibernate performs all these operations.
+	
+- Hibernate has support for queries. createQuery() method of session object is used to create queries.
+
+Hibernate CRUD Apps -
+
+	1.	Create objects
+	2.	Read objects
+	3.	Update objects
+	4.	Delete objects
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Hibernate and JDBC -
+	
+	Hibernate uses JDBC for all database communications.
+	Hibernate 5.2+ requires Java8.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
