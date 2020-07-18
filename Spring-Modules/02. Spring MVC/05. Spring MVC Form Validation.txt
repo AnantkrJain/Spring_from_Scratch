@@ -1,0 +1,96 @@
+Applying Built-in Validation Rules :-
+
+Need for Vaildation -
+
+	Check the user input form for
+		1.	required fields
+		2.	valid numbers in a range
+		3.	valid format(postal code)
+		4.	custom business rule
+		
+		Java's Standard Bean Validation API -
+		
+		1.	Java has a standard Bean Validation API
+		2.	Defines a metadata model and API for entity validation
+		3.	Not tied to either the web tier or the persistence tier
+		4.	Available for server-side apps and also client-side JavaFX/Swing apps
+		
+		5. 	It is JSR-303/309
+		6. 	Only a specification, vendor independent and portable
+		
+		Spring and Validation -
+		
+		1.	Spring v4+ supports Bean Validation API
+		2.	Preferred method for validation when building Spring apps
+		3.	Simply add Validation JARs to our project
+		
+		Bean Validation Features -
+		
+		1.	required
+		2.	validate length
+		3.	validate numbers
+		4.	validate with regular expression
+		5.	custom validation
+		
+		Validation Annotations -
+		
+		1.	@NotNull
+		2.	@Min
+		3.	@Max
+		4. 	@Size
+		5.  @Pattern
+		6.	@Future/@Past
+		
+		Development Process -
+		
+		1.	set up devlopment environment
+		2.	required field
+		3.	validate number range: min, max
+		4.	validate using regular expression
+		5.	custom validation
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+Hibernate to rescue -
+
+	Hibernate started as an ORM project but in years, they have expanded into other projects. They have fully compliant JSR-303/309 implementation.It is not tied to ORM or database work, sperate project.
+		
+		Development Process -
+			1.	Download Validation JAR files from Hibernate website
+			2.	Add JAR files to project
+			
+		Download JARs from 'https://www.hibernate.org/validator'. Copy JARs from 'dist' folder and 'dist/lib/required' folder into your project's 'lib' folder from downloaded 
+	
+	Development Process -
+		1.	Add validation rule to Customer class
+		2.	Display error messages on HTML form
+		3.	Perform validation in the Controller class
+		4.	Update confirmation page
+		
+		@Valid - It performs validation rules on customer project
+		BindingResult - Result of validation placed in the BindingResult
+		
+		@InitBinder - It works as pre-processor. It will process each web request to our controller.
+		StringTrimmerEditor class is defined in Spring API. It removes whitespace - leading and trailing and if string has only whitespaces, trims it to null. 'true' value shows that it trims to null.
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Validating Number Range and Regular Expressions :-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
