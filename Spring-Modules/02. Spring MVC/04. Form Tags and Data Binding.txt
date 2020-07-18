@@ -1,0 +1,30 @@
+Spring MVC Form Tags :-
+	
+	1.	Text Fields -
+			Before you show the form, you must add 'model attribute'. This is a bean that will hold form data for the data binding.
+				
+				When form is loaded, Spring MVC will call student.get[FieldName](). 
+				When form is submitted, Spring MVC will call student.set[FieldName]().
+			
+			Use @ModelAttribute annotation to bind form data to object and pass it to the controller.
+			
+			Structure:
+				student-form.jsp -----> Student Controller -----> student-confirmation.jsp
+				
+		Development Process-
+			1.	Create Student Class
+			2.	Create Student Controller class
+			3.	Create HTML Form
+			4.	Create form processing node
+			5.	Create confirmation page
+			
+	2.	DropDown List -
+			
+			Development Process-
+				1.	Update HTML Form
+				2.	Update Student Class - add getter/setter for new property
+				3.	Update Confirmation Page
+	
+	3.  Radio Buttons
+	
+	4.	CheckBoxes
