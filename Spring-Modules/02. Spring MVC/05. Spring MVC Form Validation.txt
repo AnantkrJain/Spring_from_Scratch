@@ -77,7 +77,38 @@ Hibernate to rescue -
 
 Validating Number Range and Regular Expressions :-
 
+	Development Process -
+		1.	Add validation rule to Customer class
+		2.	Display error messages on HTML form
+		3.	Perform validation in the Controller class
+		4.	Update confirmation page
+		
+Applying Regular Expression :-
+	
+	A sequence of chracters that define a search pattern 
+		This pattern is used to find or match strings
+		
+	Free tutorials for regular expression-
+		https://docs.oracle.com/javase/tutorial/essential/regex/
+		
+	Development Process -
+		1.	Add validation rule to Customer class
+		2.	Display error messages on HTML form
+		3.	Update confirmation page
+		
+Handling String input for Integer fields :-
 
+	Development Process -
+		1.	Create custom error messages
+			src/resources/messages.properties
+		
+		2.	Load custom messages resource in Spring config file
+			WebContent/WEB-INF/spring-mvc-demo-servlet.xml
+			
+		message.properties:
+			[ErrorType].[SpringModelAttributeName].[FieldName]=[CustomErrorMessage]
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
