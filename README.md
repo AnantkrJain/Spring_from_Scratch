@@ -1,2 +1,2 @@
 # Spring_from_Scratch
-This is spring core basic project having each and every file manually created in lieu of using "spring initializr" generated project.
+Projects having each and every file manually created for Spring various modules(Core, MVC, AOP, Security, REST, Boot) and hibernate in lieu of using "spring initializr" generated project.
