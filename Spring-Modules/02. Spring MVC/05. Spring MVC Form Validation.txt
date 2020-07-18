@@ -110,6 +110,29 @@ Handling String input for Integer fields :-
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Custom Validation Rules :-
+
+	1.	Perform custom validation based on business values
+	2.	Spring MVC calls our custom validation
+	3.	Custom validation returns boolean value for pass/fail
+	
+	Create custom java annotation.
+	
+	Development	Process -
+		1.	Create custom validation rule
+				Create '@CourseCode' annotation
+					Define default course code
+					Define default error message
+					Define default groups
+					Define default payloads
+				Create 'CourseCodeConstraintValidator' containing business rules for validation
+					initialize method
+					isValid method
+		2.	Add validation rule to Customer class
+		3.	Display error messages on HTML form
+		4.	Update confirmation page
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
