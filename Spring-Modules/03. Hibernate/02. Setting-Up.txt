@@ -1,0 +1,51 @@
+Setting up the Development Environment :-
+
+	To build Hibernate applications, you need to build the following:
+		1.	Java Integrated Development Environment(IDE)
+		2.	Database Server
+		3.	Hibernate JAR files and JDBC Driver
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Installing MySQL on MS Windows -
+	1.	Download MySQL
+			https://dev.mysql.com/downloads/mysql/5.6.html(Download web version of 32 bit MSI)
+	2.	Install MySQL
+	3.	Verify Installation
+	
+Setting up Database table -
+
+	Two Database Scripts -
+	
+	1.	Folder: sql-scripts
+			01-create-user.sql
+				Create a new MySQL user for our application
+					user id: hbstudent
+					password: hbstudent
+			02-student-tracker.sql
+				Create a new database table: student having 4 columns - id, first_name, last_name, email
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Setting up Hibernate in Eclipse -
+
+	1.	Create Eclipse Project
+	2.	Download Hibernate Files
+	3.	Download MySQL JDBC Driver
+	4.	Add JAR files to eclipse project
+
+1.	File->New->Java Project  ---> Create new folder 'lib' in the project named 'hibernate-tutorial'.
+
+2. 	Go to www.hibernate.org, select hibernate ORM and download JAR files.
+
+3.	Copy JARs from 'hibernate-release-5.4.18.Final\lib\required' and paste it into 'lib' folder.
+
+4.	Go to 'https://dev.mysql.com/downloads/connector/j/', select Operating System as 'plateform independent' and download 'Platform Independent (Architecture Independent), ZIP Archive'.
+
+5.  Copy JAR file for JDBC connector from 'mysql-connector-java-8.0.21' and paste it into 'lib' folder.
+
+6.	Add JAR files to  classpath using build path.
+
+7. 	Create TestJdbc.java class and run as java class to test the connection for created 'hbstudent'.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
