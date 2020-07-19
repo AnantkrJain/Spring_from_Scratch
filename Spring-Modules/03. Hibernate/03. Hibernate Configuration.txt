@@ -1,0 +1,22 @@
+Hibernate Configuration with Annotations :-
+
+	Hibernate Development Process -
+		1.	Add Hibernate Configuration file
+		2.	Annotate Java Class
+				Entity Class - Java class that is mapped to a database table.
+		3.	Develop Java Code to perform database operations
+				Hibernate CRUD Features
+		
+	There are two options for mapping Java class to database class thorugh hibernate:
+		1.	XML Config file (legacy)
+		2.	Java Annotations (modern, preferred)
+				1.	Map class to database table
+				2.	Map fields to database columns
+	
+	Q-> Why we are using JPA Annotation instead of Hibernate?
+	
+	A->	JPA is a standard specification. Hibernate is an implementation of JPA specification. Hibernate implements all of the JPA annotations.
+	
+	----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	
