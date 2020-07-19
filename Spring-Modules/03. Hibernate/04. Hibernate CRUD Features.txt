@@ -85,6 +85,26 @@ Querying Objects with Hibernate :-
 				
 	# In Hibernate 5.2+, Query list() method has been deprecated. Use 'getResultList()' method.
 	
+	Q-> How to view Hibernate SQL Parameter Values?
+
+	A->	Using Hibernate, if you log the Hibernate SQL statements, you will see ? instead of values. You can view the actual parameters by viewing the low-level trace of Hibernate logs. 
+		We can add log4j to allow us to see the low-level logs.
+			
+			Development Process -
+				1.	Add log4j to your project classpath.
+						http://central.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.jar
+				2.	Add log4j.properties to your "src" directory.
+						# Root logger option
+						log4j.rootLogger=DEBUG, stdout
+						 
+						# Redirect log messages to console
+						log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+						log4j.appender.stdout.Target=System.out
+						log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+						log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+						 
+						log4j.logger.org.hibernate=TRACE
+	
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
 	
