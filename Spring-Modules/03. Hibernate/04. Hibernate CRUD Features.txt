@@ -1,0 +1,94 @@
+C ---> Creating and Saving Java Object :-
+
+Key Players -
+	
+	SessionFactory Class -
+		1.	Reads the hibernate config file
+		2.	Creates Session objects
+		3.	Heavy-weight object
+		4.	Only create once in your app
+		
+	Session - 
+		1.	Wraps a JDBC connection
+		2.	Main object used to save/retrieve objects
+		3.	Short-lived object
+		4.	Retrieved form SessionFactory
+
+Development Process -
+	1.	Create a Java object
+	2.	Start the transaction
+	3.	Save the java object using session object
+	4.	Commit the transaction
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+Primary Key :-
+	
+	Uniquely identifies each row in a table
+	Must be a unique value
+	Can not contain NULL values
+	
+ID Generation Strategies :-
+
+	Name 						Description
+	
+	GenerationType.AUTO			Pick an appropriate strategy for the particular database
+	
+	GenerationType.IDENTITY		Assign primary keys using database identity column
+	
+	GenerationType.SEQUENCE		Assign primary keys using a database sequence
+	
+	GenerationType.TABLE		Assign primary keys using an underlying database table to ensure uniqueness
+	
+		1.	You can define your custom generation strategy. 
+		2.	Create implementation of 'org.hibernate.id.IdentifierGenerator'.
+		3.	Override the method: public Serializable generate(....) with your own business logic.
+		
+	Things needed to be taken care of:
+		1.	Always generate unique values
+		2.	Work in high-volume, multi threaded environment
+		3.	If using server clusters, always generate unique values
+		
+Changing the starting index :-
+
+	ALTER TABLE hb_student_tracker.student auto_increment=1000 ---> It will change the starting index from 1000
+	truncate hb_student_tracker.student ---> It will drop the whole table. Index will begin again from 1
+	
+		Any change will reflect after only running the program again.
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+R ---> Reading Objects from Hibernate :-
+
+	Retrieve the java object using primary key.
+		session.get([class name],[Primary key]);
+
+	Development Process -
+		1.	Create a student object
+		2.	start the transaction
+		3.	save the student object
+		4.	commit transaction
+		
+		5.	find out the student's id: primary key
+		6.	now get a new session and start transaction
+		7.	retrieve student based on the id: primary key
+		8.	commit the transaction
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Querying Objects with Hibernate :-
+
+	Hibernate Query Language(HQL) -
+		1.	Query language for retrieving objects
+		2.	Similar in nature to SQL
+				where, like, order by, join, in etc.
+				
+	# In Hibernate 5.2+, Query list() method has been deprecated. Use 'getResultList()' method.
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	
+		
+		
+		
+	
