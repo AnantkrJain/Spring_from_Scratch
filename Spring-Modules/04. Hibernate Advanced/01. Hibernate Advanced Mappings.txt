@@ -1,0 +1,60 @@
+Advanced Mappings :-
+
+	In the database, you most likely will have -
+		1.	Multiple Tables
+		2.	Relationship between tables
+		
+	Need to model this with Hibernate.
+	
+	Types -
+		1.	One-to-One
+		2.	One-to-Many, Many-to-One
+		3.	Many-to-Many
+		
+	
+	One-to-One Mappings :-
+	
+		An Instructor can have an instructor detail entity
+		
+	One-to-Many Mappings :-
+		
+		An instructor can have many courses.
+		
+	Many-to-Many Mappings :-
+	
+		A course can have many students.
+		A student can have many mappings.
+		
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Database Concepts :-
+
+	1. Primary Key and Foreign Key -
+	
+		Primary Key - identify a unique row in the table.
+		
+		Foreign Key -
+			Link tables together
+			a field in one table that refers to primary key in another table.
+			
+	2.	Cascade -
+		
+		You can cascade operations
+		Apply the same operation to related entities
+		
+		If we delete an instructor, then we also have to delete instructor_detail.
+		This is known as CASCADE_DELETE.
+		
+		# You can't use cascade delete in many-to-many mapping.
+		
+	3.	Fetch Types -
+	
+		Eager  will retrieve everything.
+		Lazy will retrieve on request.
+		
+	4.  Uni-directional and Bi-directional -
+		
+		Uni-directional - Through Instructor, you can access instructor_detail but not vice-versa.
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
