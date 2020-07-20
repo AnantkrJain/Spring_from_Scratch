@@ -107,6 +107,32 @@ Querying Objects with Hibernate :-
 	
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
+Updating Objects with Hibernate :-
+
+	1.	Get a new session and start the transactionRetrieve the value.
+	2.	Retrieve the student based on primary id.	
+	3.	Update the object.
+	4.	Commit transaction.
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Deleting Objects with Hibernate :-
+
+	There are two ways for deleting -
+	
+	1.	1.	Get a new session and start the transactionRetrieve the value.
+		2.	Retrieve the student based on primary id.	
+		3.	Delete the object.
+		4.	Commit transaction.
+		
+	2.	Provide directly query in session.createQuery().
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q-> How to read dates with Hibernate?
+
+A-> 
+	
 	
 		
 		
