@@ -1,0 +1,50 @@
+An instructor can have an "instructor detail" entity similar to "instructor profile".
+For Uni-directional:
+
+	Development Process -
+		1.	Prep Work - Define database tables
+		2.	Create InstructorDetail Class
+		3. 	Create Instructor Class
+		4.	Create Main App
+				Create the objects
+				Associate the objects
+				Start a transaction
+				Commit the transaction
+		
+	Foreign Key -
+		
+		1.	'CONSTRAINT' and 'REFERENCE' are the keywords used to set up the foreign key relationship.
+		2.	Main purpose is to preserve relationship between tables.
+		3.	Referential Integrity - Prevents operations that would destroy relationship.
+		4.	Ensures only valid data is inserted into the foreign key column
+				Can only contain valid reference to primary key in other table.
+				
+	Entity Lifecycle -
+		
+		Operations		Description
+		
+		Detach			If entity is detached, it is not associated with a Hibernate session
+		Merge 			If instance is detached from session, the merge will reattach to session
+		Persist 		Transitions new instance to managed state. Next flush/commit wil save in db
+		Remove 			Transitions managed entity to be removed. Next flush/commit will delete from db
+		Refresh 		Reload/sync object with data from db. Prevents stale data.
+	
+	Cascade Types -
+	
+		Cascade Type 	Description
+		
+		PERSISRT		If entity is persisted/saved, then related entity will also be persisted/saved.
+		REMOVE			If entity is removed/deleted, related entity will also be deleted
+		REFRESH 		If entity is refreshed, related entity will also be refreshed
+		DETACH			If entity is detached (not associated with session), then related entity will also be detached
+		MERGE			If entity is merged, then related entity will also be merged
+		ALL				All of above cascade types
+		
+		# Bydefault no operations are cascaded.
+		# You can configure multiple cascade types.
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Run the database scripts to create the tables.
+
+	All the sql scripts are in 'D:\U-Learning\SPRING_AND_HIBERNATE\Git-Source-Code-for-Course\03-hibernate-5\hibernate-mapping-database-scripts\' folder.
