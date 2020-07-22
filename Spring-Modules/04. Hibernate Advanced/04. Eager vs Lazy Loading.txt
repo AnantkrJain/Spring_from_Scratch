@@ -1,0 +1,59 @@
+Fetch Types: Eager vs Lazy Loading :-
+
+	When we fetch/retrieve data,
+		1.	Eager will rertrieve everything.
+				Eager loading will load all dependent entities.
+					Load instructor and all of their courses at once.
+				
+			Disadvantage - If one course is mapped to 50000 students, then retrieving all data will slow down the performance.
+			
+		2.	Lazy will retrieve on request.
+				Lazy loading will load the main entity first.
+				
+					Example - If you search for particular instructor, then only that instructor details will be searched. In master view, related dependencies will not be loaded and in detail view, only necessary dependencies will be loaded.
+					
+				When you lazy load, the data is retrieved on demand.
+					However this requires an open Hibernate session i.e; need an connection to database to retrieve data.
+					If the Hibernate session is closed and you attempt to retrieve lazy data, Hibernate will throw an exception named "org.hibernate.LazyInitializationException" and print failed to lazily initialize a collection with collection name.
+					
+				Retrieve lazy data using
+					1.	session.get and call appropriate getter methods
+							After the session is closed, we can get the data through this by executing first when session was open.
+					2.	Hibernate query with HQL
+							After the session is closed, we can get the data through this directly by lazy loading.
+		
+	Best practice is to only load data when absolutely needed.
+	Prefer Lazy loading instead of Eager loading.
+	
+	Mapping			Default Fetch Type
+	
+	@OneToOne		FetchType.EAGER
+	@OneToMany		FetchType.LAZY
+	@ManyToOne 		FetchType.EAGER
+	@ManyToMany		FetchType.LAZY
+	
+	fetch=FetchType.[fetchType] will override the fetch type.
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Eager Loading :-
+
+	Right click on line number value ---> Toggle as breakpoint 
+
+	Now right click on code, Debug as ---> Java Application
+
+	Use the eclipse's "step over" button to see the output of every next line from the toggle point.
+
+	Observe that Eager loading will print the instructor, instructor_details and courses ; all information related to instructor.
+	
+	If you observed, then click on "resume" button to complete the run in single step.
+	
+	Switch back to "Java Perspective" mode from top-right corner.
+	
+Lazy Loading :-
+
+	All the steps will be same as Eager loading for eclipse.
+	
+	Only instructor and instructor_details will be loaded.
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
