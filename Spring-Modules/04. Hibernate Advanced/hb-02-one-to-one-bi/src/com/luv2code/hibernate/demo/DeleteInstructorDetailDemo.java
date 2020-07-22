@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 import com.luv2code.hibernate.demo.entity.Instructor;
 import com.luv2code.hibernate.demo.entity.InstructorDetail;
 
-public class GetInstructorDetailDemo {
+public class DeleteInstructorDetailDemo {
 
 	public static void main(String[] args) {
 
@@ -23,7 +23,7 @@ public class GetInstructorDetailDemo {
 			session.beginTransaction();
 			
 			//get the instructor detail object
-			int theId = 2;
+			int theId = 3;
 			InstructorDetail tempInstructorDetail = session.get(InstructorDetail.class, theId);
 			
 			//print the instructor detail
@@ -31,6 +31,14 @@ public class GetInstructorDetailDemo {
 			
 			//print the associated instructor
 			System.out.println("the associated instructor:  "+tempInstructorDetail.getInstructor());
+			
+			//now delete the instructor detail
+			System.out.println("Deleting tempInstructorDetail :  "+tempInstructorDetail);
+			//remove the associated object reference
+			//break bi-directional link
+			tempInstructorDetail.getInstructor().setInstructorDetail(null);
+			session.delete(tempInstructorDetail);
+			
 			
 			
 			//commit transaction

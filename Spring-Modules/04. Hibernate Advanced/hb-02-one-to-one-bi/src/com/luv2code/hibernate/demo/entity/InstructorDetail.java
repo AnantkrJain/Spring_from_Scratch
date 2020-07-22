@@ -28,7 +28,10 @@ public class InstructorDetail {
 	private String hobby;
 	
 	//Add new field for Instructor (Also get getters/setters)
-	@OneToOne(mappedBy="instructorDetail", cascade=CascadeType.ALL)
+	//@OneToOne(mappedBy="instructorDetail", cascade=CascadeType.ALL)                  
+	
+	//Delete only instructor detail but keep the instructor ---> Since we are not using REMOVE CascadeType
+	@OneToOne(mappedBy="instructorDetail", cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	private Instructor instructor;
 	
 	public Instructor getInstructor() {

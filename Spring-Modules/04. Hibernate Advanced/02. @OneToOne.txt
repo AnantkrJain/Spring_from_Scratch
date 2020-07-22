@@ -66,5 +66,13 @@ Bi-directional :-
 		Use information from the Instructor class @JoinColumn
 		To help find associated Instructor
 		
+		
+	#If we don't close the connection, we get error for next run as "1 unclosed connections upon shutting down the pool". For no more leaking, session.close() is required.
+	
+	#If id doesn't exist which we are trying to findout in database, then we will get as nullPointerException.
+	
+	#Only after removing cascade type REMOVE, if you try to delete, you will get an error "mapManagedFlushFailure"
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
 	
