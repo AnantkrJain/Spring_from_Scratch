@@ -45,6 +45,26 @@ For Uni-directional:
 		
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-1. Run the database scripts to create the tables.
+Bi-directional :-
 
-	All the sql scripts are in 'D:\U-Learning\SPRING_AND_HIBERNATE\Git-Source-Code-for-Course\03-hibernate-5\hibernate-mapping-database-scripts\' folder.
+	For bi-directional mapping, there is no need to change in the database schema.
+	Run the database scripts to create the tables.
+
+	All the sql scripts are in 'D:\U-Learning\SPRING_AND_HIBERNATE\Git-Source-Code-for-Course\03-hibernate-5\hibernate-mapping-database-scripts\' folder. Simply update the Java code.
+	
+	Development Process -
+	
+	1.	Make updates to InstructorDetail class
+		1.	Add new field to reference Instructor
+		2.	Add getter/setter methods for Instructor
+		3.	Add @OneToOne annotations
+		
+	2.	Create Main App
+	
+	mappedBy tells Hibernate -
+		looked at the instructorDetail property in the 'Instructor' class
+		Use information from the Instructor class @JoinColumn
+		To help find associated Instructor
+		
+	
+	
