@@ -1,0 +1,17 @@
+Bi-directional :-
+
+	An instructor can have many courses.
+		If you delete the instructor, do not delete the course.
+		If you delete the course, do not delete the instructor.
+			Do not apply cascading delete.
+			
+	Development Process :-
+		1.	Prep Work - Define database tables
+		2.	Create Course class -@ManyToOne
+		3.	Update Instructor class -@OneToMany
+		4.	Create Main App
+		
+	mappedBy - mappedBy tells Hibernate
+					Look at the instructor property in the Course class
+					Use information from the Course class @JoinColumn
+					helps to find associated courses for Instructor
