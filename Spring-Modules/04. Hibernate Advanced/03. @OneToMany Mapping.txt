@@ -15,3 +15,23 @@ Bi-directional :-
 					Look at the instructor property in the Course class
 					Use information from the Course class @JoinColumn
 					helps to find associated courses for Instructor
+					
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Uni-Directional :-
+
+	A course can have multiple reviews.
+		If you delete a course, also delete the reviews.
+		Revies without the course has no meaning.
+		
+	Development Process -
+		1.	Prep Work - Define database tables
+		2.	Create Review class
+		3.	Update Course class
+		4.	Create Main App
+		
+	In this scenario, @JoinColumn tells Hibernate 
+		Look at the course_id column in the review tables
+		Use the information to help find associated reviews for a course
+		
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
