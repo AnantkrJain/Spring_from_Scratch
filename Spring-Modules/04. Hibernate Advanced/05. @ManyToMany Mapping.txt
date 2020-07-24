@@ -1,0 +1,26 @@
+A course can have many students.
+A student can have many courses.
+
+	Need to track which student in which course and vice-versa.
+	
+	Join Table - A table that provides a mapping between two tables. It has foreign keys for each table to define the mapping relationship.
+	@JoinTable tells Hibernate
+		Look at the course_id column in the course_student table.
+		For the other side(Inverse), look at the student_id column in the course_student table.
+		Use the information to find the relationship between course and students.
+		
+		Inverse - 
+			In this context, we are defining the relationship in Course class.
+			The student class is on the other side, so it is considered the inverse.
+			Inverse refers to the other side of relationship.
+			
+	If we delete the course, do not delete students.
+	If we delete the students, do not delete the courses.
+	
+	Development Process -
+		1.	Prep work - Define database tables
+		2.	Update Course class
+		3.	Update Student class
+		4.	Create Main app
+		
+	

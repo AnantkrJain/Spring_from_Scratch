@@ -1,0 +1,65 @@
+Full Working Spring MVC and Hibernate application that connects to a database.
+
+	Customer Relationship Management (CRM) :-
+		1.	Set up Database Dev Environment
+				Two database scripts
+					Folder: sql-scripts 
+								01-create-user.sql
+									Create a new MySQL user for our application
+										user id: springstudent
+										password: springstudent
+								02-customer-tracker.sql
+									Create a new database table: customer
+									Load the table with sample data.
+				Test DB Connection
+					1.	Setup our Eclipse project
+							File --> New --> Dynamic Web Project
+					2.	Add JDBC Driver for MySQL
+							Copy 'mysql-connector-java' JAR from 'D:\U-Learning\SPRING_AND_HIBERNATE\Git-Source-Code-for-Course\04-spring-mvc-crud-5\web-customer-tracker-starter-files\WebContent\WEB-INF\lib'
+					3.	Sanity test.. make sure we can connect
+							Create package 'com.luv2code.testdb'. 
+							Create servlet 'TestDbServlet'. Only check 'Inherited abstract method' and 'doGet' option.
+							In TestDbServlet, import java.sql.*. 
+								1.	Setup connection variables
+								2.	Get connection to database
+								
+				Dev Environment
+					1.	Copy starter config files
+							web.xml and [spring config].xml
+								Copy from 'D:\U-Learning\SPRING_AND_HIBERNATE\Git-Source-Code-for-Course\04-spring-mvc-crud-5\web-customer-tracker-starter-files\WebContent\WEB-INF' and paste into 'WEB-INF'
+					2.	Copy over JSTL libs
+							javax.servlet.jsp.jstl and javax.servlet.jsp.jstl.api
+								Copy from 'D:\U-Learning\SPRING_AND_HIBERNATE\Git-Source-Code-for-Course\04-spring-mvc-crud-5\web-customer-tracker-starter-files\WebContent\WEB-INF\lib' and paste it into 'WEB-INF\lib'
+					3.	Copy latest Spring JAR files
+							Copy from 'D:\JARs\01. spring-framework-5.2.7.RELEASE\libs' and paste it into 'WEB-INF\lib'
+					4.	Copy latest Hibernate JAR files
+							1.	Copy from 'D:\JARs\04. hibernate-release-5.4.18.Final\lib\required' and paste it into 'WEB-INF\lib'
+							2.	C3P0 - Database connection pooling 
+									Copy from 'D:\JARs\04. hibernate-release-5.4.18.Final\lib\optional\c3p0' and paste it into 'WEB-INF\lib'
+				# For Java 9+
+						You need to download additional JARs.
+							1.	javax.activation-1.2.0.jar
+							2.	jaxb-api-2.3.0.jar
+							3.	jaxb-core-2.3.0.jar
+							4.	jaxb-impl-2.3.0.jar
+							
+				Configuration for Spring+Hibernate
+					1.	Define database datasource/connection 
+							Define bean for data source
+							Define database connection
+							Define connection pool properties
+					2. 	Setup Hibernate session factory
+							Define bean for session factory
+							Provide reference to data source - Scan for Hibernate @Entity classes
+					3.	Setup Hibernate transaction manager
+							Define bean for transaction manager
+							Provide reference to session factory
+					4.	Enable configuration of transactional annotations
+							
+							Add the following configurations in your spring MVC configuration file i.e; spring-mvc-crud-demo-servlet.xml
+		2.	List Customers
+				Web Browser ---/customer/list--->  Customer Controller ------>  list-customer.jsp ---->  Web Browser
+				Create new package 'com.luv2code.springdemo.controller' and create class 'CustomerController'
+		3.	Add a new Customer
+		4.	Update a Customer
+		5.	Delete a Customer
