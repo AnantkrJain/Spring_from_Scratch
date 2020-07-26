@@ -1,0 +1,27 @@
+Run custom code before the target object method calls.
+
+Q-> To use Spring AOP, we need to download Aspect JAR files. Why?
+
+A-> Spring AOP use some of the AspectJ annotations.
+	Spring AOP use some of the AspectJ classes.
+	
+Development Process -
+	1.	Create target object
+	2.	Create Spring Java Config class
+	3.	Create main app
+	4.	Create an aspect with @Before advice
+	
+	Best Practices -
+		1.	Keep the code small
+		2.	Keep the code fast
+		3.	Do not perform any expensive/slow operations
+		4.	Get in and out as quickly possible
+		
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+AOP Project Setup :-
+
+Use 'Java Perspective'.
+
+Download Aspect JAR files.
+	https://mvnrepository.com/artifact/org.aspectj/aspectjweaver/1.9.6

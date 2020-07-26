@@ -25,7 +25,8 @@ Two main problems -
 	AOP Solution -
 		Apply the proxy design pattern
 		
-		Main App <--------> AOP Proxy <-----------------------> Target Object
+		Main App <--------> AOP Proxy <----------(Logging Aspect + Security Aspect)-------------> Target Object
+								Run custom code before/after/around(depends on advice type) the target object method call.
 		
 Benefits of AOP :-
 	1.	Code for Aspect is defined in a single class
