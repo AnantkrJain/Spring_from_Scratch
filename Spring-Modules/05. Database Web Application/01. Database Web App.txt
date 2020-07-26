@@ -1,6 +1,7 @@
 Full Working Spring MVC and Hibernate application that connects to a database.
 
 	Customer Relationship Management (CRM) :-
+	
 		1.	Set up Database Dev Environment
 				Two database scripts
 					Folder: sql-scripts 
@@ -57,9 +58,100 @@ Full Working Spring MVC and Hibernate application that connects to a database.
 					4.	Enable configuration of transactional annotations
 							
 							Add the following configurations in your spring MVC configuration file i.e; spring-mvc-crud-demo-servlet.xml
+							
 		2.	List Customers
 				Web Browser ---/customer/list--->  Customer Controller ------>  list-customer.jsp ---->  Web Browser
-				Create new package 'com.luv2code.springdemo.controller' and create class 'CustomerController'
+				Create new package 'com.luv2code.springdemo.controller' and create class 'CustomerController' in it.
+				Create a folder 'view' in 'WEB-INF' folder and create file 'list-customers.jsp' in it.
+				
+				Picture:-
+					Web Browser ---> Customer Controller ---> Customer DAO ----> Database   ----->Customer DAO ----> Customer Controller ----> JSP Pages ----> Web Browser
+					
+					Customer Data Access Object - It is responsible for interfacing with the database. It accesses the data through Hibernate API and send back to spring mvc controller.
+					
+				Development Process -
+					1.	Create Customer.java
+							Entity class - Entity class is a Java class that is mapped to a database table.
+					2.	Create CustomerDAO.java and CustomerDAOImpl.java
+							For Hibernate, our DAO needs Hibernate Session Factory.
+							Our session factory needs a Data Source
+								data source defines database connection info
+							Development Process -
+								1.	Define DAO Interface
+								2.	Define DAO Implementation
+										Inject the session factory
+							
+							Specialized Annotations for DAO -
+								1.	Spring provides an @Transactional annotation
+										Automagically begin and end a transaction for your Hibernate code. No need for you to do this in your code.
+								2. 	@Repository annotation -
+										Applied to DAO implementations
+										Spring will automatically register the DAO implementations because of component scanning.
+								3.  Spring also provides translation of any JDBC related exceptions
+					3.	Create CustomerController.java
+							Need to inject the customer DAO
+							Get customers from DAO
+							Add the customers to the model
+					4.	Create JSP page - list-customer.jsp
+							Add jsp/jstl core library.
+							Adding CSS -
+								Development Process -
+									1.	Place CSS in a resource directory
+									2.	Configure Spring to serve up 'resources' directory
+									3.	Refresh CSS in your JSP
+									
+				HTML Form ---request---> Spring MVC Controller ---response---> HTML Form
+				Picture:-
+					Web Browser ---> Customer Controller     --->Customer Service --->     Customer DAO					
+				Purpose of Service Layer :-
+					1.	Service Facade design pattern
+					2.	Intermediate layer for custom business logic
+					3.	Integrate data from multiple sources(DAO/repositories)				
+				Development Process -
+					1.	Define Service Interface
+					2.	Define Service Implementation
+							Inject the CustomerDAO
+							
+				Specialized Annotation for Services -
+					@Service applied to Service implementations
+					Spring will automatically register the service implementations because of component scanning
 		3.	Add a new Customer
+				1.	Update list-customer.jsp
+						New 'Add Customer' button
+				2.	Create HTML form for new customer
+				3.	Process form data
+						Controller ---> Service ---> DAO
 		4.	Update a Customer
+				1.	Update list-customers.jsp
+						New 'Update' link
+				2.	Create customer-form.jsp
+						Prepopulate the form
+				3.	Process form data
+						Controller ---> Service ---> DAO
 		5.	Delete a Customer
+				1.	Add Delete link on JSP
+				2.	Add code for delete
+						Controller->Service->DAO
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

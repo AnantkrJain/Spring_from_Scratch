@@ -1,0 +1,153 @@
+Application Architecture :-
+	Account Controller <----------> Account Service <---------> Account DAO <----------> Database
+	
+New Requirements - Logging :-
+	
+	Need to add logging to our DAO methods
+		Add some logging statements before the start of the method
+		
+New Requirements - Security :-
+
+	Need to add security code to our DAO
+		Make sure user is authorized before running DAO method
+		
+		
+Two main problems -
+	1.	Code Tangling
+			We have logging and security code tangled in
+	2.	Code Scattering
+			If we need to change logging or security code, we have to update all classes.
+			
+	Aspects -
+		Aspects can be reused at multiple locations.
+		Same aspect/class can be applied based on configuration.
+	
+	AOP Solution -
+		Apply the proxy design pattern
+		
+		Main App <--------> AOP Proxy <-----------------------> Target Object
+		
+Benefits of AOP :-
+	1.	Code for Aspect is defined in a single class
+			Much better than being scattered everywhere
+			Promotes code reuse and easier to change
+			
+	2.	Business code in your application is cleaner
+			Only applies to business functionality: addAccount
+			Reduces code complexity
+			
+	3.	Configurable
+			Based on configuration, apply aspects selectively to different parts of app
+			No need to make changes to main application code.
+			
+Additional AOP Use Cases :-
+
+	Most Common -
+		logging, security, transactions
+	Audit Logging-
+		who, what, when, where
+	Exception handling -
+		log exception and notify DevOps team via SMS/mail
+	API Management -
+		How many times has a method been called user
+		analytics: what are peak times? what is average load? who is top user?
+		
+AOP: Advantages and Disadvantages :-
+
+	Advantages -
+		1.	Reusable modules
+		2.  Resolve code tangling
+		3.  Resolve code scatter
+		4.  Applied selectively based on configuration
+		
+	Disadvantages - 
+		1.	Too many aspects and app flow is hard to follow
+		2.	Minor performance cost for aspect execution(run-time weaving)
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+AOP Terminology :-
+
+	Aspect: module of code for a cross-cutting concern(logging, security ..)
+	Advice: What action is taken and when it should be applied
+	Join Point: When to apply code during program execution
+	PointCut: A predicate expression for where advice should be applied
+	
+Advice Types :-
+	Before Advice:	run before the method
+	After finally advice: run after the method(finally)
+	After returning advice: run after the method(success execution)
+	After throwing advice: run after method(if exception thrown)
+	After advice: run before and after method
+	
+Weaving :-
+	Connecting aspects to target objects to create an advised objects
+	
+	Different Types of Weaving -
+		1.	Compile-time
+		2.	Load-time
+		3.	Run-time
+		
+	Regarding performance, run-time weaving is slowest.
+	
+AOP Frameworks :-
+	1.	Spring AOP
+	2.	AspectJ - www.eclipse.org/aspectj
+	
+	Spring AOP - 
+		1. 	Spring provides AOP support
+		2.	Key components of Spring - Security, transaction, caching etc
+		3.	Uses run-time weaving of aspects
+		
+			Advantages -
+
+				1.	Simpler to use than AspectJ
+				2.	Uses Proxy pattern
+				3.	Can migrate to AspectJ when using @Aspect annotation
+				
+			Disadvantages -
+
+				1.	Only support method-level join points
+				2.	Can only apply aspect to beans created by Spring app context
+				3.	Minor performance cost for aspect execution (run-time weaving)
+			
+	AspectJ - 
+		1.	Original AOP framework, released in 2001
+		2.	Provides complete support for AOP
+		3. 	Rich support for
+				join points - method-level, constructor, field
+				code weaving - compile-time, post compile-time, load-time
+				
+			Advantages -
+				
+				1.	Supprot all join points
+				2.	Works with any POJO, not just beans from app context
+				3.	Faster performance compared to Spring AOP
+				4.	Complete AOP support
+				
+			Disadvantages -
+			
+				1.	Compile-time weaving requires extra compilation step
+				2.	AspectJ pointcut syntax can become complex.
+	
+	Comparison :-
+		1.	Spring AOP is a light weight implementation of AOP
+		2.	Solves common problems in enterprise applications
+		
+		General practice is to start with Spring AOP. If you have complex requirements, then only move to AspectJ
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Spring AOP Roadmap -
+
+	1.	Create Aspects
+	2.	Develop Advices
+	3.	Create Pointcut expressions
+	4.	Applying it to project(Spring MVC + Hibernate)
+
+
+	
+	
+	
+				
+				
