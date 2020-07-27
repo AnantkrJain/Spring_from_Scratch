@@ -1,0 +1,68 @@
+Pointcut :  A predicate expression for where advice should be applied
+
+Spring AOP uses AspectJ's pointcut expression language.
+
+Pointcut Expression Language -
+	execution(modifiers-pattern? return-type-pattern declaring-type-pattern? method-name-pattern(param-pattern) throws-pattern?)
+	
+	modifiers-pattern: public
+	return-type-pattern: void, boolean, String, List<?>, ...
+	declaring-type-pattern: class name
+	method-name-pattern: method name
+	param-pattern: parameters type 
+	throws-pattern: Exception types
+			Parameters having ? are optional.
+			
+	Example - For our scenario, "execution(public void com.luv2code.aopdemo.dao.AccountDAO.addAccount())"
+	
+	* works as wildcard. You can use * instead of any pattern and it will be applied to all.
+	
+	Parameter Pattern Wildcards -
+		() - matches a method with no argument
+		(*) - matches a method with one argument of any type
+		(..) - matches a method with 0 or more arguments of any type.
+		
+	#If you provide wrong param name, then you will get error named "InvalidAbsoluteTypeName".
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Pointcut Declarations :-
+
+	How can we reuse a pointcut declarations?
+		Want to apply to multiple devices
+		
+	Development Process - 
+		1.	Create Pointcut declaration once
+		2.	Apply pointcut declaration to advice(s)
+		
+	Benefits :-
+		1.	Easily reuse pointcut expressions
+		2.	Update pointcut in one location
+		3.  Can also share and combine pointcut expressions
+		
+		
+Combining Pointcuts :-
+
+	How to apply multiple pointcut expressions to single advice?
+		Execute an advice only if certain conditions are met.
+		
+		Example - All methods in a package except getter/setter methods
+		
+	Works like an 'if' statement
+	Execution happens only if it evaluates to true
+	
+	Development Process -
+		1.	Create a pointcut declarations
+		2.	Combine pointcut declarations
+		3. 	Apply pointcut declaration  to advice(s)
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+	
+	
+	
+	
+	
+	
+	
+	
