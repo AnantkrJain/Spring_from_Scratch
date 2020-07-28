@@ -1,0 +1,19 @@
+Main App	---------------findAccounts()--------->		AOP Proxy		--------------findAccounts()--------> 	AccountDAO		--------------------success or exception----------> 	@After advice -------------------returns data(for success)-------->		AOP Proxy	---------------returns data(for success)--------> 	Main App
+
+@After will run for success or failure (finally)
+@After will execute before @AfterThrowing
+
+Use Cases :-
+
+	1.	Log the exception or perform auditing
+	2.	Code to run regardless of method outcome
+	3.	Encapsulate this functionality in AOP aspect for easy reuse
+	
+# The @After advice does not have access to the exception . If you need exception, then use @AfterThrowing advice. The @After advice should be able to run in the case of success or error. Your code should not depend on happy path or an exception. Logging/auditing is the easiest case here.
+
+Development Process :-
+
+	1.	Prep work
+	2.	Add @After advice
+	3.	Test for failure/exception case
+	4.	Test for success case
