@@ -1,0 +1,18 @@
+Main App	---------------findAccounts()--------->		AOP Proxy		--------------findAccounts()--------> 	AccountDAO		--------------------exception----------> 	@AfterThrowing advice -------------------exception-------->		AOP Proxy	---------------exception--------> 	Main App
+
+Use Cases :-
+
+	1.	Log the exception
+	2.	Perform auditing on the exception
+	3.	Notify the DevOps team via email or SMS
+	4.	Encapsulate this functionality in AOP aspect for easy reuse
+	
+Exception Propogation :-
+	
+	At this point, we are only intercepting the exception(reading it) while the exception is still propogated to calling program.
+	If you want to stop the exception propogstion, then use @Around advice.
+	
+Development Process :-
+	1. 	In main app, add try/catch block for exception handling
+	2.  Modify AccountDAO to simulate throwing an exception.
+	3.	Add @AfterThrowing advice
