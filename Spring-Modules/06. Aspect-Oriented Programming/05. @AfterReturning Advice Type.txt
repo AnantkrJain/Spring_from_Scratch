@@ -1,0 +1,17 @@
+Use Cases :-
+
+	Most Common
+		logging, security, transactions
+		
+	Audit logging
+		who, what, when, where
+		
+	Post-processing Data
+		Post process the data before returning to caller
+		Format the data on enrich the data
+		
+Development Process :-
+	1.	Prep Work: Add constructors to Account class
+	2.	Add new method: findAccounts() in AccountDAO
+	3.	Update main app to call the new method: findAccounts()
+	4.	Add @AfterReturning advice
