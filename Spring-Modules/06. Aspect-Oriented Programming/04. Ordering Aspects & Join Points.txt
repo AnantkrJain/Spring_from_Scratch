@@ -1,0 +1,24 @@
+How to control the order of advices being applied?
+
+Place advices in seperate Aspects
+Control order on aspects using the @Order annotation
+	Lower numbers have higher precedence
+		Range: Integer.MIN_VALUE to Integer.MAX_VALUE
+		Negative numbers are allowed
+		Does not have to be consecutive
+		
+		If aspects have the exact same @Order annotation, then that part is undefined.
+		
+Development Process -
+	1.	Place advices in seperate aspects
+	2.	Add @Order annotation to aspects
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Join Points :-
+
+When we are in an aspect i.e.; for logging, How can we access method parameters?
+
+Development Process -
+	1.	Access and display method signature
+	2.	Access and display method arguments
