@@ -1,0 +1,37 @@
+@Around device is like a combination of @Before and @After but gives you more fine-grained control.
+
+Use Cases :-
+
+	1.	Most common: logging, auditing, security
+	2.	Pre-processing and post-processing data
+	3.	Instrumentation / profiling code
+	4.	Managing exceptions - Swallow/ handle/ stop exceptions
+	
+Main App 	--------getFortune()------> 	AOP Proxy 	----------getFortune()--------> 	@Around advice 	------<call target method>--------> 	FortuneService 	---------result----------> 	@Around advice
+----------result------> 	AOP Proxy 	---------result------> 	Main App
+
+ProceedingJoinPoint :-
+	
+	1.	When using @Around advice, you will get a reference to "proceeding join point"
+	2.	This is a handle to the target method
+	3.	Your code can use the proceeding join point to execute target method
+	
+Development Process :-
+	1.	Prep Work
+	2.	Create TrafficFortuneService
+	3.	Update main app to call TrafficFortuneService
+	4.	Add @Around service
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Resolving Print Order Issue :-
+	
+	Root Cause -
+		
+		The data is printing to two different output streams.
+		Spring is printing to the logger output stream.
+		System.out.;println is printing to the standard out output stream.
+		
+	Solution -
+		To have everything in order, you should send to same output stream.
+		We will change our code to use the logger output stream same as Spring.
