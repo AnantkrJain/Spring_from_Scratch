@@ -7,8 +7,7 @@ Use Cases :-
 	3.	Instrumentation / profiling code
 	4.	Managing exceptions - Swallow/ handle/ stop exceptions
 	
-Main App 	--------getFortune()------> 	AOP Proxy 	----------getFortune()--------> 	@Around advice 	------<call target method>--------> 	FortuneService 	---------result----------> 	@Around advice
-----------result------> 	AOP Proxy 	---------result------> 	Main App
+Main App 	--------getFortune()------> 	AOP Proxy 	----------getFortune()--------> 	@Around advice 	------<call target method>--------> 	FortuneService 	---------result----------> 	@Around advice 		----------result------> 	AOP Proxy 	---------result------> 	Main App
 
 ProceedingJoinPoint :-
 	
@@ -35,3 +34,33 @@ Resolving Print Order Issue :-
 	Solution -
 		To have everything in order, you should send to same output stream.
 		We will change our code to use the logger output stream same as Spring.
+		
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Handling Exceptions :-
+
+	For an exception thrown from proceeding join point
+		You can handle /swallow /stop the exception
+		Or you can simply rethrow the exception
+		
+	This gives you fine-grained control over how the target method is called
+	
+	Development Process :-
+		
+		1.	Prep Work
+		2.	Add trip wire to simulate an exception
+		3.	Modify @Around advice to handle exception
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
