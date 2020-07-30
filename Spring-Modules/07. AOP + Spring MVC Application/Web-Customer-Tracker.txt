@@ -1,0 +1,14 @@
+Implement AOP in 'Web customer tracker' project -
+
+	Development Process -
+		1.	Add AspectJ JAR files to web project
+				All Spring projects require AspectJ JAR file for AOP support
+					https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
+		2.	Enable AspectJ Auto Proxy
+				For Java configuration, @EnableAspectJAutoProxy
+				For XML configuration, <aop:aspectj-autoproxy/>
+		3.	Create Aspect
+				1.	Add logging support
+				2.  Setup pointcut declarations
+				3.	Add @Before advice
+				4.  Add @AfterReturning advice
