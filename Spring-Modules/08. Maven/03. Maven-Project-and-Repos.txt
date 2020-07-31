@@ -1,0 +1,96 @@
+Steps :-
+
+	1.	Learn about Eclipse's support for Maven.
+	2.	Create a simple Maven Project with Eclipse.
+	3.	Explore the generated files and directories.
+	4.	Run our app.
+	5.	Update the Java version settings.
+	
+Eclipse and Maven :-
+
+	Most recent versions of Eclipse have built-in support for Maven.
+		Use the m2eclipse plugin
+		
+	There is no need to download/install Maven seperately.
+		Can create Maven projects, add dependencies all inside of Eclipse.
+		
+Q-> How to check what is already installed in Eclipse?
+A-> Eclipse -> Help -> Install New Softwares -> select 'what is already installed?'
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Default version of Java is 1.5 which maven uses. To change it, provide the specification in pom.xml -
+
+	<maven.compile.target>1.8</maven.compile.target>	- Generates class files that will work on a given Java version
+    <maven.compile.source>1.8</maven.compile.source>	- The Java version of source code accepted
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Creating a Web App Project :-
+
+	1.	Create a WebApp Maven Project with Eclipse
+	2.	Explore the generated files and directories
+	3.	Add dependencies to our POM file
+	4.	Run our WebApp
+	
+	# We need to add the Servlet API dependency: javax.servlet-api 
+		Go to http://search.maven.org
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Repository Types :-
+	
+	1.	Local Repository
+			MS Windows:	c:\Users\<users-home-dir>\.m2\repository
+			Maven will search this local repository first before going to Maven Central Repository.
+	2.	Remote Repository
+			By default, Maven will search Maven's Central Repository(remote)
+			https://repo.maven.apache.org/maven2/
+			Requires an internet connection
+			Once files are downloaded, they are stored in local repository.
+			
+	# If you delete any JAR file in .m2/repository, it can always be reseeded by right click on project -> Maven -> Update Project
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+Private Repositories :-
+
+	Your company has created super-top-secret code modules and would like to share with other development teams at your company. But let's keep it private(NOT AVAILABLE TO THE PUBLIC)
+	
+	You can set up your own private Maven Repositories. Secure it with credentials: id/password. Hence, create your super-top-secret projects and publish on private repository.
+	
+Maven Repository Manager Products :-
+
+	Product			Company				Website
+
+	Archiva			Apache				archiva.apache.org
+	Artifactory		JFrog				www.jfrog.com
+	Nexus			Sonatype			www.sonatype.com
+
+Cloud Hosted Solutions :-
+
+	If you don't need to self-host internally at your company, Cloud hosted solutions are available.
+	www.packagecloud.io, www.mymavenrepo.com
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	

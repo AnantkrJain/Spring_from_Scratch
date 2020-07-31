@@ -1,0 +1,71 @@
+POM (Project Object Model) File :-
+
+	pom.xml mainly consists of three categories -
+		1.	project meta data - Project name, version etc. Output file type: JAR, WAR, ...
+		2.	dependencies - List of projects we depend on Spring, Hibernate etc....
+		3.	plug ins - Additional ccustom tasks to run: general Junit test reports etc...
+		
+Project Coordinates :-
+	Project coordinates uniquely identify a project
+		1.	groupId - Its like project name or City
+		2.	artifactId - Its like package name or Strret
+		3.	version - Its like class name or House Number
+		
+		Name				Description
+		
+		Group ID			Name of company, group or organization. Convention is to use reverse domain name.
+		Artifact ID			Name for this project
+		Version 			A specific release version. If project is under development, then use 'SNAPSHOT' keyword with version.
+		
+Q->	How to Find dependency coordinates?
+A->	Option 1:	Visit the project page(spring.io, hibernate.org etc.)
+	Option 2:	Visit http://search.maven.org (easiest approach)
+	
+Example - 
+	Maven Coordinates for hibernate-core -
+	Option 1: https://hibernate.org/orm/downloads - Copy the maven repository
+	Option 2: http://search.maven.org - Search and select the version
+
+	Option 3: http://www.mvnrepository.com/ - 3rd party website: It has sonatype release, spring plugins,spring libs, atlassian, jboss releases, nuxeo releases, apache releases besides central maven repositories.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Maven Archetypes :-
+
+	1.	Archetypes can be used to create new Maven projects.
+	2.	Contains template files for a given maven project.
+			Thinks of it as collection of "starter files" for a project.
+			
+	Archetype Artifact ID			Description
+	
+	maven-archetype-quickstart		An archetype to generate a sample Maven project.
+	maven-archetype-webapp			An archetype to generate a sample Maven Webapp project.
+	
+	
+	#	http://maven.apache.org/archetypes
+			You can create new projects using Maven Archetypes from the command-line or from an IDE.
+			
+	maven-archetype-quickstart contains a sample maven project - 
+		project - pom.xml, src/main/java/App.java, src/test/java/AppTest.java
+		
+	maven-archetype-webapp contains a sample maven webapp project-
+		project - pom.xml, src/main/webapp/index.jsp, src/test/webapp/WEB-INF/web.xml
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

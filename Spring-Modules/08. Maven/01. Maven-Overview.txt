@@ -1,0 +1,68 @@
+1.	Create Maven projects with Eclipse.
+2.	Add dependencies to Maven pom.xml file
+3.	Build and run Maven projects
+4.	Develop Maven projects for Java apps and Spring Apps
+5.	Import Maven projects
+6.	Run Maven from the command-line
+
+Maven Reference Manual
+	http://maven.apache.org/guides/
+	
+Maven eBooks
+	https://www.sonatype.com/ebooks
+	
+Maven Cheat Sheet
+	https://www.jrebel.com/blog/maven-cheat-sheet
+	
+Maven :-
+	Maven is a project management tool. Most popular use of Maven is for build management and dependencies.
+	
+	Q->	How does Maven solve the problem?
+	A->	When building your Java project, you may need additional JAR files. Example - Spring, Hibernate, Commons Logging, JSON etc. 
+		One approach is to download the JAR files from each project web site. Manually add the JAR files to your build path/classpath.
+		
+		Maven will go out and download the JAR files for those projects for you. Maven will make those JAR files available during compile/ run.
+		
+	Q-> How Maven works?
+	A-> Maven reads config file. Maven checks first it's local repository, if data is not there, then it gets the data from Maven central repository(remote) and save it into maven local repository. Then 	maven builds and run the project.
+		
+		Steps :-
+			1.	Read Config file
+			2.	Check local repo
+			3.	Get from remote repo
+			4.	Save in local repo
+			5.	Build and run
+			
+	Handling JAR dependencies :-
+		When Maven retrieves a project dependency, it will also download supporting dependencies. Maven handle this for us automagically.
+		
+	Building and running :-
+		When you build and run your app, maven will handle class/ build path for you. Based on config, Maven will add JAR files accordingly.
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Standard Directory Structure :-
+
+	src/main/java		Your Java source code
+	src/main/resources	Properties/config files used by your app
+	src/main/webapp		JSP files, web config files and other web assets (images, css, js etc)
+	src/test			Unit testing code and properties
+	target				Destination directory for compiled code. Automatically created by maven.
+
+	Benefits -
+		
+		Most major IDEs have built-in support for Maven
+			Eclipse, IntelliJ, NetBeans etc
+			IDEs can easily read/import Maven projects
+			
+		Maven projects are portable
+			Developers can easily share projects between IDEs
+			
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			
+Advantages of Maven :-
+	
+	1.	Dependency Management
+	2.	Building and Running project
+	3.	Standard directory structure
+
