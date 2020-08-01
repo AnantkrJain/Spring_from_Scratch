@@ -1,0 +1,46 @@
+1.	Secure Spring MVC Web Apps
+2.	Develop login pages(default and custom)
+3.	Define users and roles with simple authentication
+4.	Protect URLs based on roles
+5.	Use JSP tags to hide/show content based on role
+6.	Store users, passwords and roles in DB (plain-text -> encrypted)
+
+Spring Security Model :-
+
+	1.	Spring Security defines a framework for security
+	2.	Implemented using Servlet filters in the background
+			Servlet Filters are used to pre-process/post-process web requests
+			Servlet Filters can route web requests based on security logic
+			Spring provides a bulk of security functionality with servlet filters
+	3.	Two methods of securing a Web app: declarative and programmatic
+			Declarative Security -
+				Define application's security constraints in configuration(All Java config or Spring XML config)
+				Provides seperation of concerns between application code and security
+			Programmatic Security - 
+				Spring Security provides an API for custom application coding
+				Provides greater customization for specific app requirements
+				
+	
+	#	Spring security filters take care of security configuration and users passwords roles i.e; it checks - 1.	is web resource protected?
+																											   2.	is user authenticated?
+																											   3.	is user authorized?
+																											   
+	Authentication - Check user id and password with credentials stored in app/db
+	Authorization - Check to see if user has an authorized role
+	
+Different Login Methods :-
+	
+	1.	HTTP Basic Authentication(Built-in Dialog from browser)
+	2.	Default Login form (Spring security provides a default login form)
+	3.	CUstom login form(HTML+CSS)
+	
+Authentication and Authorization :-
+	
+	1.	In-memory
+	2.	JDBC
+	3.	LDAP
+	4.	Custom/Pluggable
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	

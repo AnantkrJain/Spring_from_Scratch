@@ -1,0 +1,40 @@
+Java Configuration :-
+	
+	Instead of configuring Spring MVC app using XML - web.xml and spring-mvx-demo-servlet.xml, configure the Spring MVC App with Java Code.
+	
+	XML Config to Java Config -
+	
+		web.xml is replaced with Spring @Configuration
+		spring-mvc-demo-servlet.xml is replaced with Spring Dispatcher and Servlet Initializer.
+		
+	Enabling the MVC Java Config -
+		@EnableWebMvc
+			Provides similar support to <mvc:annotation-driven/> in XML.
+			Add conversion, formatting and validation support
+			Processing of @Controller classes and @RequestMapping methods.
+	
+	Development Process :-
+	
+		1.	Add Maven dependencies for Spring MVC Web App
+				1.	spring-webmvc 		- will load all supporting dependencies spring-core, logging etc.
+				2.	javax.servlet-api	- add servlet, JSP and JSTL support
+				3.	jstl
+				4.	javax.servlet.jsp-api
+				
+				5.	Need to customize maven build since we are not using web.xml. Must add Maven WAR plugin.
+		2.	Create Spring App Configuration(@Configuration)
+				Define a bean for ViewResolver
+				
+				Spring MVC provides support for web app initialization
+				Make sure your code is automatically detected
+				Your code is used to initialize the servlet container
+					
+					AbstractAnnotationConfigDispatcherServletInitializer
+						Extend this abstract base class
+						Override required methods
+						Specify servlet mapping and location of your app config
+		3.	Create Spring Dispatcher Servlet Initializer
+		4.	Develop our Spring Controller
+		5.	Develop our JSP view Page
+		
+			->	Run the project on server

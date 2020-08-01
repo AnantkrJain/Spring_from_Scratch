@@ -1,0 +1,40 @@
+Spring Security Maven Dependencies :-
+
+	Add Maven dependencies for Spring Security. Spring Security has two dependencies -
+		1.	spring-security-web
+		2. 	spring-security-config
+		
+	#	Spring Security module is completely different module from other spring framework modules(core, aop, mvc). The projects are on differnet release cycle. Version number between projects are generally not in sync.
+	
+	Finding Compatible version :-
+		
+		Find desired version of Spring Security in Maven Central Repo
+			spring-security-web
+			
+		Look at the project POM file
+			Find supporting Spring Framework Version
+			
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Development Process :-
+
+	1.	Create Spring Security Initializer
+			Spring Security provides support for security initialization
+			Your security code is used to initialize the servlet container
+			Special class 'AbstractSecurityWebApplicationInitializer' to register the Spring Security Filters
+	2.	Create Spring Security Configuration(@Configuration)
+	3.	Add users, passwords and roles
+	
+Context Root - The root path for your web application
+				Right click on project -> properties -> Web Project Setting -> Context Root : [Name]
+				
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+User login is based on "web browser session". Hence, you will be automatically logged in once you login. 
+For login again, you have to -
+	1.	use another browser
+	2.	quit the browser and again do the process 
+	3.	can use incognito window.
+This is only an issue during Dev and Testing but not an issue when deployed to production/real-time.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
