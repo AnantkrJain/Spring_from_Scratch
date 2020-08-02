@@ -1,0 +1,100 @@
+Development Process :-
+	
+	1.	Modify Spring Security Configuration to reference custom login form
+			DemoSecurityConfig.java - 
+				
+				Method										Description
+				
+				configure(AuthenticationManagerBuilder)     Configure users(in memory, database, ldap etc)
+				configure(HttpSecurity)						Configure security of web paths in application, login, logout etc.
+				
+					authorizeRequests()						Restrict access based on the HttpServletRequest
+					authenticated()							Any request to the app must be authenticated i.e; logged in
+					formLogin()								We are customizing the form login process
+					loginPage("/[PageName]")				Show our custom form at the request mapping
+					loginProcessingUrl("/[]")				login form should POST data to this URL for processing
+																We need to create a controller for this request mapping
+					permitAll()								allow everyone to see login page. No need to be logged in.
+																No controller request mapping required for this. We get this for free.
+	2.	Develop a Controller to show the custom login form	
+			Get Mapping for the login page
+			return login form(.jsp)
+	3.	Create custom login form
+			Send data to login processing URL
+			Login processing URL will be handled by Spring Security Filters
+			No coding required
+			
+			# Best practice is to use the Spring MVC form tag <form: form>
+				Provides automatic support for security defenses
+				
+			#Spring security defines default names for login form fields -
+				Username field: username
+				Password field: password
+				
+Q-> Why use Context Path? -> ${pageContext.request.contextPath}
+A-> 1.	Allow us to dynamically reference context path of application
+	2.	Helps to keep links relative to application context path
+	3.	If you change context path of app, then links will still work.
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Spring security's default login page had built-in support for error messages but for our custom login page, we need logic to handle for login error messages.
+
+Adding Login Error Message :-
+
+	Development Process -
+		1.	Check the error parameter
+		2.	If error parameter exists, show an error message.
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bootstrap CSS Login Form :-
+	
+	Bootstrap is a web framework that includes CSS styles and Javascript. Focused on front-end UI.
+	We will modify the form to use Spring Security for our project.
+	
+	Development Process :-
+	
+		1.	Modify form and add support for Spring MVC form tags
+		2.	Update form to point to our login processing URL
+		3.	Verify form fields for username and password
+		4.	Change our controller to use our new Bootstrap login form
+		
+			Bootstrap official documentation :-
+				www.getbootstrap.com/docs
+			Bootstrap tutorial :-
+				www.w3schools.com/bootstrap
+				
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Adding Logout Support :-
+
+	Development Process :-
+	
+		1.	Add logout support to Spring Security Configuration
+				DemoSecurityConfig.java -
+					.and().logout().permitAll();
+		2.	Add logout button to JSP page
+				Send data to default logout URL: /logout. By default, must use POST method.
+				Logout URL will be handled by Spring Security filters
+				No coding required. You get it for free.
+		3.	Update login form to display 'logged out' message.
+				Check the logout parameter
+				If logout parameter exists, show "logged out" message
+		
+		Logout Process -
+		
+			When a logout is processed, by default Spring Security will -
+				1.	Invalidate user's HTTP session and remove session cookies.
+				2.	Send user back to your login page.
+				3.	Append a logout parameter: ?logout
+				
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+		
+
+
+
+	
