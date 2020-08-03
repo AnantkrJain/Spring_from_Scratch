@@ -1,0 +1,54 @@
+Database support in Spring Security :-
+
+	1.	Spring Security can read user account info from database.
+	2.	By default, you have to follow Spring Security's predefined table schemas
+	
+	Customize Database Access with Spring Security -
+		
+		1.	Can also customize the table schemas
+		2.	Useful if you have custom tables specified to your project
+		3.	You will be responsible for developing the code to access the data. 
+				JDBC, Hibernate etc.
+				
+	Development Process :-
+		
+		1.	Develop SQL Script to setup database tables
+		2.	Add database support to Maven POM file
+				JDBC Driver: 		mysql-connector-java
+				DB Connection Pool:	com.mchange
+		3.	Create JDBC properties file
+				JDBC connection properties
+				Connection Pool properties
+		4.	Define DataSource in Spring Configuration
+				@PropertySource("classpath:[PropertiesFileName]")
+					Will read the props file -> src/main/resources
+					Files are automatically copied to classpath during Maven build
+				Environment class variable will hold data from properties file.
+				Need to define DataSource object
+					Create connection pool
+					set the jdbc driver
+					set database connection props
+					set connection pool props
+		5.	Update Spring Security Configuration to use JDBC
+				Inject our data source that we just configured
+				Tell Spring Security to use JDBC authentication with our data source
+				
+		Default Spring Security Database Schema :-
+		
+		users 
+			username
+			password
+			enabled
+		authorities
+			username
+			authority
+			
+		Spring Security Password Storage :-
+		
+			In Spring Security 5, passwords are stored using a specific format.
+				{id}encodedPassword
+				
+				ID		Description
+				
+				noop	Plain text passwords
+				bcrypt	BCrypt password hashing
