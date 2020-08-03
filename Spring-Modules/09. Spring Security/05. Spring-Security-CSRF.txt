@@ -1,0 +1,46 @@
+Spring Security protects against Cross-Site Request Forgery (CSRF).
+
+CSRF :-
+	
+	A security attack where an evil website tricks you into executing an action on web application that you are currently logged in.
+	
+	Example - 	1.	You are logged into your banking app and tricked into sending money to another person
+				2.	You are logged into an e-commerce app and tricked into purchasing unwanted items.
+				
+	Protection :-
+	
+		To protect against CSRF attacks, embed additional authentication data/token into all HTML forms. On subsequent requests, web app will verify token before processing.
+		
+Spring Security's CSRF Protection :-
+
+	1.	CSRF protection is enabled bydefault in Spring Security.
+	2.	Spring Security uses the synchronizer token pattern
+			Each request includes a session cookie and randomly generated token
+	3.	For request processing, Spring Security verifies token before processing.
+	4.	All of this is handled by Spring Security Filters.
+	
+Q-> When to use CSRF Protection?
+A-> The Spring Security team recommends to use CSRF protection for any normal browser web requests.
+	If you are building a service for non-browser clients, you may want to disable CSRF protection after careful review.
+	
+Development Process :-
+	1.	For form submissions, use POST instead of GET.
+	2.	Include CSRF token in form submission.
+	3.	<form:form> automagically adds CSRF token.
+	4. 	If you don't use <form:form>, you must manually add CSRF token. -
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			
+	# If you will use 'form' tag and will not provide token manually; token will be null, then you will get error HTTP 403-Forbidden.
+	
+CSRF Resources :-
+	
+	CSRF Security Reference
+		https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
+		
+	Spring Security CSRF Support 
+		https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#csrf
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
