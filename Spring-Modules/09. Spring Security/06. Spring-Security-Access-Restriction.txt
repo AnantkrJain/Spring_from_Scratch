@@ -1,0 +1,45 @@
+User Roles :-
+
+	Spring security provides JSP custom tags for accessing user id and roles.
+	
+	Development Process :-
+	
+		1.	Update POM file for Spring Security JSP Tag Library
+				artifactId: spring-security-taglibs
+		2.	Add Spring Security JSP Tag Library to JSP page
+		3.	Display User ID
+		4. 	Display User Roles
+		
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Restrict Access Based on Roles :-
+
+	Development Process :-
+		
+		1.	Create supporting controller code and view pages
+				/leaders -> Leadership retreat page, role: Manager
+				/systems -> Admin Holiday Cruise, role: Admin
+		2.	Update user roles
+		3.	Restrict access based on roles
+				Update your Spring Security Java configuration file
+					antMatchers([add path to match on]).hasRole([authorized role])
+					
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Create a Custom "Access Denied Page" :-
+
+	Development Process :-
+		
+		1.	Configure custom page for access denied
+		2.	Create supporting controller and view page
+		
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Dsiplay Content Based on Role :-
+	
+	Since 'Anant' is a normal employee, he must not be able to see the links for 'Leadership Meeting' and 'IT Systems Meeting'.
+		home.jsp -
+		
+			<security:authorize access="hasRole('[roleName]')">
+		
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
