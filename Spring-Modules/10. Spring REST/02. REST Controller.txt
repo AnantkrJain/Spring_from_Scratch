@@ -1,0 +1,43 @@
+Spring REST Controller :-
+
+	REST over HTTP -
+		
+		Most common use of REST is over HTTP.
+		Leverage HTTP methods for CRUD operations.
+		
+		HTTP Method			CRUD Operation
+		
+		POST				Create a new entity
+		GET					Read a list of entities or single entity
+		PUT 				Update an existing entity
+		DELETE				Delete an existing entity
+		
+		CLIENT								SERVER
+		
+					HTTP Request Message
+		My CRM App ---------------------->	CRM REST Service
+				   <---------------------
+					HTTP Response Message
+
+	HTTP Request Message has 3 parts -
+		1.	Request Line - the HTTP command
+		2.	Header variables - request metadata
+		3.	Message body - content of message
+		
+	HTTP Response Message has 3 parts -
+		1.	Response Line - server protocol and status code
+		2.	Header variables - response metadata
+		3.	Message body - content of message
+		
+		HTTP Response Status Codes -
+			
+			Code Range				Description
+			
+			100-199					Informational
+			200-299					Successful
+			300-399					Redirectional
+			400-499					Client error
+				401						Authentication Required
+				404						File Not Found
+			500-599					Server error
+				500						Internal Server Error

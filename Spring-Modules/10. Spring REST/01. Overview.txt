@@ -1,0 +1,132 @@
+1.	Create REST APIs/Web services with Spring
+2.	REST concepts, JSON and HTTP messaging
+3.	Install REST client tool: Postman
+4.	Develop REST APIs/Web Services with @RestController
+5.	Build a CRUD interface to the database with Spring REST
+
+Business Problem :-
+	
+	Build a client app that provides the weather report for a city
+	Need to get weather data from an external service
+	
+Application Architecture :-
+
+	MyWeatherApp - App that we are creating (CLIENT) 	--------> 	Weather Service (External) - Provided by third party (SERVER)
+	
+	Q-> How will we connect to Weather Service?
+	A-> We can make REST API calls over HTTP. REST(Representational State Transfer) is a lightweight approach for communicating between applications.
+	
+	Q-> What programming language do we use?
+	A->	REST is language independent. The CLIENT and SERVER applications can use ANY programming language.
+	
+	Q-> What is data format?
+	A-> Applications can use any data format. Commonly see XML and JSON.
+	
+	Possible Solution -
+		Use free Weather Service provided by "openweathermap.org".
+		
+		
+# Where to find REST APIs - www.programmableweb.com
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+JSON Overview :-
+
+	JSON is JavaScript Object Notation.
+	It is lightweight data format for storing and exchanging data.
+	It is language independent.
+	
+	JSON Values :-
+		
+		Number: no quotes
+		String: in double quotes
+		Boolean: true, false
+		Nested JSON object
+		Array
+		null
+		
+Java JSON Data Binding :-
+
+	Data binding is the process of converting JSON data to a Java POJO.
+	
+	JSON -------------------------> Java POJO
+		 <------------------------
+				Data Binding
+				
+		It is also known as Mapping, Serialization/Deserialization or Marshalling/Unmarshalling.
+		
+	JSON Data Binding with Jackson :-
+		
+		Spring uses the Jackson Project behind the scenes.
+		Jackson handles data binding between JSON and Java POJO.
+		
+		Details on Java Project:
+			https://github.com/FasterXML/jackson-databind
+			
+Jackson Data Binding :-
+
+	Jackson Data Binding API
+		Package: com.fasterxml.jackson.databind
+		
+	Maven Dependency 
+		<dependency>
+		  <groupId>com.fasterxml.jackson.core</groupId>
+		  <artifactId>jackson-databind</artifactId>
+		  <version>2.11.2</version>
+		  <type>bundle</type>
+		</dependency>
+		
+		
+	Bydefault, Jackson will call appropriate setter methods on POJO to convert JSON to Java POJO and getter methods on POJO to convert Java POJO to JSON. 
+	
+	JSON to Java POJO -
+		
+		1.	Create object mapper
+		2.	Read JSON from file and map/convert to Java POJO
+		3. 	Print individual items
+		
+	Java POJO to JSON -
+	
+		1. 	Create Object Mapper
+		2.	Read JSON from file and map/convert to Java POJO
+		3.	Now write JSON to output file
+		
+	Spring and Jackson Support :-
+		
+		When building Spring REST applications, Spring will automatically handle Jackson Integratio. 
+		JSON data being passed to REST controller is converted to POJO.
+		Java object being returned from REST controller is converted to JSON.
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Development Process (JSON to Java POJO):-
+	
+	1.	Download and import Maven Starter Files.
+	2.	Add Maven dependencies for Jackson project.
+	3.	Create Student POJO Java class.
+	4.	Create main Driver App
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
