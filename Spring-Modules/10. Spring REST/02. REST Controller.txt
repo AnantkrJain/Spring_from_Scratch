@@ -41,3 +41,82 @@ Spring REST Controller :-
 				404						File Not Found
 			500-599					Server error
 				500						Internal Server Error
+				
+		MIME Content Types -
+		
+			The message format is described by MIME content type
+				Multipurpose Internet Mail-Extension
+				
+			Basic Syntax: type/sub-type
+			
+			Examples -
+				text/html, text/plain
+				application/json, application/xml
+				
+	Install REST Client -
+	
+		Postman - www.getpostman.com
+		
+		www.jsontest.com - Provides a collection of backend REST services to test against.
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Spring REST Support :-
+
+	1.	Spring Web MVC provides support for Spring REST.
+
+	2.	New annotation @RestController
+			Extension of @Controller
+			Handles REST requests and responses
+	
+	3.	Spring REST will also automatically convert Java POJOs to JSON
+			As long as the Jackson project is on the classpath or pom.xml
+			
+	Web Browser vs Postman -
+	
+		For simple REST testing for GET requests
+			Web Browser and Postman are simiilar
+			
+		However, for advanced REST testing: POST, PUT etc..
+			Postman has much better support
+			POSTing JSON data, setting content type
+			Passing HTTP request headers, authentication etc..
+			
+	Development Process :-
+	
+		1.	Add Maven dependency for Spring MVC and Jackson project
+		2.	Add code for all Java config: @Configuration
+		3.	Add code for all Java config: Servlet Initializer
+		4.	Create Spring REST Service using @RestController
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
