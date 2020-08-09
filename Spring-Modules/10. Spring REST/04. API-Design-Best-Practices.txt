@@ -1,0 +1,40 @@
+API Design Process :-
+
+	1.	Review API requirements
+	2.	Identify main resource/entity
+	3.	Use HTTP methods to assign action on resource.
+	
+	Example -
+
+		1.	Create a REST API for the Customer Relationship Management(CRM) system.
+			REST clients should be able to -
+				1.	Get a list of customers
+				2.	Get a single customer by id
+				3.	Add a new customer
+				4.	Update a customer
+				5.	Delete a customer
+		2.	/api/customers must be the endpoint as customer is main resource for the project.
+		3.	HTTP Method			Endpoint											CRUD Action
+			POST				/api/customers										Create a new Entity
+			GET					/api/customers | /api/customers/{customerId}		Read a list of entities or single entity
+			PUT					/api/customers										Update an exisiting entity
+			DELETE				/api/customers/{customerId}							Delete an existing entity
+			
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Real-Time Project APIs -
+
+	PayPal -
+		
+		PayPal Invoicing API
+			https://developer.paypal.com/docs/api/invoicing/
+			
+	GitHub -
+		GitHub Repositories API
+			https://developer.github.com/v3/repos/#repositories
+			
+	SalesForce -
+		Industries REST API
+			https://sforce.co/2J40ALH
+		
+		
