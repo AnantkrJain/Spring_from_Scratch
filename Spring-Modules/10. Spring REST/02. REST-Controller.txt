@@ -91,7 +91,26 @@ Spring REST Support :-
 		
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
-		
+Retrieve POJO as JSON :-
+
+	Our REST Service will return List<Student>.
+		GET		/api/students		Returns a list of students
+	Need to convert List<Student> to JSON.
+	
+
+Path Varaibles :-
+
+	Retrieve a single student by id
+		GET		/api/students/{studentId}	Retrive a single student
+
+	Development Process -
+	
+		Add request mapping to Spring REST Service
+			Bind path variable to method parameter using @PathVariable
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+	
 		
 
 

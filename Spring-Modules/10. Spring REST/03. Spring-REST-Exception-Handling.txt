@@ -1,0 +1,45 @@
+Spring REST Exception Handling :-
+
+	Handle the exception and return error as JSON.
+	
+	Development Process -
+	
+		1.	Create a custom error response class
+				The custom error response class will be sent back to client as JSON.
+				We will define as Java class(POJO)
+				Jackson will handle converting it to JSON.
+		2.	Create a custom exception class
+		3.	Update REST service to throw exception if student not found
+		4.	Add an exception handler method using @ExceptionHandler
+				Exception handler method will return a ResponseEntity
+				ResponseEntity is a wrapper for the HTTP response object
+				ResponseEntity provides a fine-grained control to specify: HTTP Status Code, HTTP Headers and Response Body
+				
+	
+						Bad Data
+	REST Client -----------------------------> REST Service
+				<----------------------------       Throw exception
+										Exception Handler 
+					provides Custom Response
+					
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Generic Exception Handling :-
+
+	If string value is provided in API in place of integer value of param variable 'student id', then generic exception handling is required.
+
+Global Exception Handling :-
+
+	Exception handler code is only for the specific REST controller, can't be reused by other controllers. We need global exception handlers. It promotes reuse and centralzes exception handling.
+
+	@ControllerAdvice -
+		
+		1.	It is similar to an interceptor/filter.
+		2.	Pre-process requests to controllers.
+		3.	Post-process responses to handle exceptions.
+		
+	Development Process - 
+	
+		1.	Create new @ControllerAdvice
+		2.	Refactor REST service to remove exception handling code.
+		3.	Add exception handling code to @ControllerAdvice
