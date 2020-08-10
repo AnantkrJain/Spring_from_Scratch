@@ -1,0 +1,55 @@
+To download CRM project -
+	http://www.luv2code.com/spring-crm-rest-demo
+	
+	Code Review -
+		1.	pom.xml file
+		2.	All Java Config
+		3.	Configuration file for database connection
+		4.	Hibernate Entity class: Customer
+		5.	DAO: CustomerDAO
+		6.	Service: CustomerService
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+GET /api/customers
+GET /api/customers/{customerId}
+
+	Development Process -
+	
+		1.	Create Customer REST Controller
+		2.	Autowire CustomerService
+		3.	Add mapping for GET /customers
+		
+#If customer id is not found in database, returns null. For null objects, Jackson returns empty object.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Exception Handling :-
+	
+	Development Process -
+		
+		1.	Create a custom error response class
+		2.	Create a custom exception class
+		3.	Update REST service to throw exception if customer not found
+		4.	Add an exception handler methods using @ExceptionHandler
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+POST /api/customers
+
+Access the Request Body -
+	
+	1.	Jackson will convert request body from JSON to POJO.
+	2.	@RequestBody annotation binds the POJO to a method parameter.
+	
+	saveOrUpdate method - 
+		
+		if primary key/id is empty(null or 0), then insert new customer else update existing customer.
+		# If REST Client is sending a request to 'add' using HTTP POST then we ignore any id sent in the request. We overwrite the id with 0 to effectively set it to null/empty, then our backend DAO code will insert new customer.
+		
+	Sending JSON to Spring REST Controllers -
+	
+		When seding JSON data to spring REST Controllers, for controller to process JSON data, need to set a HTTP reqeust header
+			Content-type: application/json
+		Need to configure REST client to send the correct HTTP request header.
+	
