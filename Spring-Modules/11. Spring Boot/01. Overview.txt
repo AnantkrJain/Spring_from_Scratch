@@ -1,0 +1,213 @@
+1.	Quickly develop Spring Boot applications
+2.	Develop a REST API using Spring Boot
+3.	Create a Spring MVC app with Spring Boot
+4.	Connect Spring Boot apps to database for CRUD development
+5.	Leverage all Java configurations(no xml) and Maven
+
+Documentation :-
+	https://spring.io/projects/spring-boot
+	
+Problem -
+	Building a Spring application is really hard.
+	1.	What Maven archetype to use?
+	2.	Which Maven dependencies do I need?
+	3.	How do I set up configuration(xml or Java)?
+	4.	How do I install the server? (Tomcat, JBoss etc...)
+	
+	Solution -
+		Spring Boot Solution
+		1.	Makes it easier to start with Spring development
+		2.	Minimize the amount of manual configuration
+				Perform auto-configuration based on props files and JAR classpath
+		3.	Help to resolve dependency conflicts(Maven or Gradle)
+		4.	Provide an embedded HTTP server so you can get started quickly
+				Tomcat, Jetty, Undertow, ...
+				
+Spring Initializr :-
+	
+	1.	Quickly creates a starter spring project
+	2.	Select your dependencies
+	3.	Creates a Maven/Gradle project
+	4.	Import the project into your IDE
+			Eclipse, IntelliJ, NetBeans etc...
+			
+	# Projects downloaded from Spring Initializr are self-contained unit(nothing else to install). It includes application code and the server.
+	# Spring Boot apps can be run standalone(includes embedded server). Run the Spring Boot app from the IDE or command-line.
+		Command line :-    java -jar [appName].jar
+		
+Deploying Spring Boot Apps :-
+
+Spring Boot apps can also be deployed in the traditional way.
+Deploy WAR file to an external server: Tomcat, JBoss, WebSphere etc...
+
+# Spring Boot does not replace any spring module like Spring MVC, Spring REST etc.., instead it uses those technologies. Once you do Spring Boot config, then you make use of regular Spring coding.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Creating a project with Spring Initializr :-
+
+	Development Process -
+
+		1.	Configure our project at Spring Initializr website
+		2.	Download the zip file
+		3.	Unzip the file
+		4.	Import Maven project into our IDE
+	
+	
+	Exploring the project :-
+	
+		1.	Add "<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>" in properties tag of pom.xml file to remove the error of pom.xml.
+			Right click on project -> Maven -> Update project	
+	
+		2.	Spring Initializr creates the maven project and follows the maven standard directory structure.
+		
+		3.	Maven Wrapper Files -
+			
+				mvnw allows you to run a Maven project.
+				
+					No need to have Maven installed or present on your path
+					
+					If correct version of Maven is NOT found on your computer, automatically downloads correct version and runs maven.
+					
+				Two files are provided-
+					mvnw.cmd for MS Windows		- mvnw clean compile test
+					mvnw.sh for Linux/Mac 		- ./mvnw clean compile test
+					
+				If you already have Maven installed previously 
+					You can ignore/delete the mvnw files
+					
+					mvn clean compile test
+		
+		4.	Spring Boot Starters -
+				
+				spring-boot-starter-web dependency is combination of multiple maven dependencies - spring-web, spring-webmvc, hibernate-validator, tomcat, json
+				It saves the developer from having list all of individual dependencies, also make sure that you have compatible versions.
+
+		5.	Spring Boot Maven Plugin -
+			
+				spring-boot-maven-plugin is used to package executable jar or war archive, can also easily run the app.
+					./mvnw package
+					./mvnw spring-boot:run
+		
+		6.	@SpringBootApplication is composed of following annotations - 
+			
+				@EnableAutoConfiguration - Enable spring boot's auto-configuration support
+				@ComponentScan 			 - Enables component scanning of current package, also recursively scan sub-packages
+				@Configuration			 - Able to register extra beans with @Bean or import other configuration classes
+				
+				'SpringApplication' class bootstrap your spring boot application, creates application context and registers all beans, starts the embedded server Tomcat etc... . 
+					
+		7.	Component Scanning -
+			
+				Place your main application class in the root package above your other packages.
+				
+				This implicitly defines a base search package-
+					Allows you to leverage default component scanning
+					No need to explicitly reference the base package name
+					
+				If you want to scan some other packages except default packages, use @SpringBootApplication(scanBasePackages={"[PackageName1]", "[PackageName2]", "[PackageName3]"})
+				
+		8. 	Application Properties-
+		
+				By default, Spring Boot will load properties from 'application.properties'. It is created by Spring Initializr, empty at the beginning. 
+				It can add -
+					1.	Spring Boot properties(server.port=8585)
+					2.	Custom properties(coach.name=Mickey Mouse)
+					
+				To read data from application.properties -
+					use @Value("${[parameterName]}")
+					
+		9.	By default, Spring Boot will load static resources from "/static" directory.
+		
+		# WARNING :-
+		
+		Do not use the src/main/webapp directory if your application is packaged as JAR. Although this is a standard Maven directory, it works only with WAR packaging. It is silently ignored by most build tools if you generate a JAR.
+		
+		
+		Templates -
+				
+			Spring Boot includes auto-configuration for following template engines -
+				1.	FreeMarker
+				2.	Thymeleaf(Most popular)
+				3.	Mustache
+				
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Spring Boot Starters :-
+
+	1.	A curated list of Maven dependencies
+	2.	A collection of dependencies grouped together
+	3.	Tested and verified by Spring Development team
+	4.	Makes it much easier for the developer to get started with Spring
+	5. 	Reduces the amount of Maven configuration
+	
+	There are 30+ Spring Boot Starters from the Spring Development team - 
+	
+	Name 							Description
+	
+	spring-boot-starter-web			Building Web apps, includes validation, REST. Uses Tomcat as default embedded server.
+	spring-boot-starter-security	Adding spring security support
+	spring-boot-starter-data-jpa	Spring database support with JPA and Hibernate
+	
+	Full list -
+		https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-starter
+		
+	To check what is in the starter,
+		For eclipse users,
+			open the pom.xml, select tab Dependency Hierarchy, expand the desired starter.
+		For IntelliJ users,
+			Select View > Tool Windows > Maven Projects > Dependencies
+			
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Spring Boot Starter Parent :-
+
+	1.	Spring Boot provides "Starter Parent"
+		This is a special starter that provides Maven defaults
+		
+	2.	Maven defaults defined in starter parent -
+			1.	Default compiler level
+			2.	UTF-8 source encoding
+		
+		To override a default, set as a property
+	
+	3.	Specify version of Spring Boot starter parent. Spring boot starter-* dependencies will inherit version from starter parent. No need to list individual versions.
+	
+	4.	Default configuration of Spring Boot plugin
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+		
+				
+				
+				
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

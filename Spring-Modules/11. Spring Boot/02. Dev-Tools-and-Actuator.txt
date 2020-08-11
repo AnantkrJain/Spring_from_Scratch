@@ -1,0 +1,104 @@
+Problem -
+ 
+	When running Spring Boot applications,
+		If you make changes to your source code, then you have to manually restart your applications.
+	
+	"spring-boot-devtools" is the solution. 
+	Automatically restarts your application when code is updated. 
+	
+	Development Process -
+	
+		1.	Edit pom.xml and add "spring-boot-devtools"
+		2.	Add new REST endpoints to our application
+		3.	Verify the app is automatically reloaded.
+		
+	Spring Boot DevTools Documentation -
+		https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-devtools
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Problem -
+	
+	How can I monitor and manage my application?
+	How can I check the application health?
+	How can I access application metrics?
+	
+	"spring-boot-starter-actuator" is the solution.
+	
+	Spring Boot Actuator -
+	
+		1.	Expose endpoints to monitor and manage your application.
+		2.	You easily get DevOps functionality out-of-the-box.
+		3.	Simply add the dependency to your application.
+		4.	REST endpoints are automatically added to your application.
+				
+				Endpoints are prefixed with /actuator.
+				There are 10+ Spring Boot Actuator endpoints.
+				
+				Name			Description
+				/health			Health information about your application
+				/info			Information about your project
+				
+				/auditevents	Audit events for your application
+				/beans			List of all beans registered in the spring application context
+				/mappings		List of all @RequestMapping paths
+				
+				Properties starting with "info" will be used by /info.
+				
+	Spring Boot Actuator Endpoints full list -
+		https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints
+		
+	To expose all endpoints -
+		management.endpoints.web.exposure.include=*
+		
+	Development Process -
+	
+		1.	Edit pom.xml and add 'spring-boot-starter-actuator'
+		2.	View actuator endpoints for: /health and /info
+		3.	Edit application.properties to customize /info
+		
+	# In output, you will see "Exposing 3 endpoint(s) beneath base path '/actuator'"
+	
+	For adding JSON extension in chrome,
+		http://www.luv2code.com/chrome-json-formatter
+		
+	
+	What about security?
+	
+		You may not want to expose all of this information, add spring security to project and endpoints are secured.
+		"spring-boot-starter-security" is the solution.
+		
+		Default user name is "user". Password is available in output console.
+		You can override default user name and generated password in application.properties -
+			spring.security.user.name=[userName]
+			spring.security.user.password=[passwordValue]
+			
+		Customizing Spring Security -
+		
+			You can customize Spring Security for Spring Boot Actuator
+				Use a database for roles, encrypted passwords etc.
+			Follow the same techniques as regular Spring Security
+			
+		# Since health and info are available freely even after applying security, so disable them. Although health and info actuators are very useful in real-time so we generally don't disable them.
+			
+		Excluding Endpoints -
+		
+			management.endpoints.web.exposure.exclude=health,info
+			
+		Spring Boot Actuator Documentation -
+			https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready
+			
+		Development Process -
+		
+			1.	Edit pom.xml and add spring-boot-starter-security.
+			2.	Verify security on actuator endpoints for: /beans etc.
+			3.	Disable endpoints for /health and /info.
+		
+		
+		
+		
+		
+		
+		
+		
+		
