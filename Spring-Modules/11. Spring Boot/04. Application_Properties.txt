@@ -1,0 +1,109 @@
+Application Properties File :-
+	
+	By default, Spring Boot reads information from a standard properties file.
+		Located at: src/main/resources/application.properties
+
+	You can define ANY custom properties in this file.
+
+	Your spring boot app can access properties using @Value
+
+	Development Proces :-
+	
+		1.	Define custom properties in application.properties
+		2.	Inject properties into Spring Boot application using @Value	
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Spring Boot Properties :-
+
+	Spring Boot can be configured in "application.properties" file.
+	Spring Boot has 1000+ properties.
+	Server port, context path, acutuator, security etc...
+	
+	List of common properties :-
+		https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#common-application-properties
+		
+	The properties are roughly grouped into the following categories -
+		1.	Core
+				Log levels severity mapping -
+					logging.level.org.springframework=DEBUG
+					logging.level.org.hibernate=TRACE
+					logging.level.com.luv2code=INFO
+				Log File Name -
+					If you want to store all the logs in the file,
+						logging.file=[fileName].log
+				
+				Logging levels -
+					TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
+					
+				Logging Documentation -
+					https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-logging
+		2.	Web
+				HTTP server port
+					server.port=[portNumber]
+				Context path of the application	
+					server.servlet.context-path=/[path]
+				HTTP Session Timeout
+					server.servlet.session.timeout=15m
+						Default timeout is 30 minutes.
+		3.	Security
+				Default user name - user
+					spring.security.user.name=[anyName]
+				Default password for user - [generated in console]
+					spring.security.user.name=[anyName]
+		4.	Data
+				JDBC URL of database
+					spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce
+				Login username of the database	
+					spring.datasource.username=[anyName]
+				Login password of the database
+					spring.datasource.password=[anyName]
+		5.	Actuator
+				Endpoints to include by name or wildcard
+					management.endpoints.web.exposure.include=*
+				Endpoints to exclude by name or wildcard
+					management.endpoints.web.exposure.exclude=[actuatorName1],[actuatorName2]
+				Base path for actuator endpoints
+					management.endpoints.web.base-path=/[anyName]
+						Default path is /actuator
+		6.	Integration
+		7.	DevTools
+		8.	Testing
+		
+	Development Process :-
+		
+		1.	Configure the server port
+		2.	Configure the application context path
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
