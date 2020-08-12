@@ -1,3 +1,26 @@
 Running from the Command-Line :-
 
+	When running from command line
+		No need to have IDE open/running
+		
+	Since we are using Spring Boot, the server is embedded in our JAR file
+		No need to have seperate server installed/running
+		
+	Spring Boot apps are self-contained.(JAR file = application code + server)
 	
+	Two options for running the application
+		1.	Use java -jar [jarFileName]
+			
+		2.	Use spring boot maven plugin -    
+				mvnw package | mvn package
+				mvnw spring-boot:run | mvn spring-boot:run
+				
+					Since "spring-boot-maven-plugin" is already available in pom.xml, package your application and run it.
+
+
+	Development Process :-
+		
+		1.	Exit the IDE
+		2.	Package the app using mvnw package
+		3.	Run app using 'java -jar [JarFileName]'
+		4.	Run app using Spring Boot Maven plugin, mvnw spring-boot:run | mvn spring-boot:run
