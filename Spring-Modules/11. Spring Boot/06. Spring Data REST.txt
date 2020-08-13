@@ -1,0 +1,200 @@
+Problem :-
+	
+	We created REST API for Employee
+	
+	If we need to create REST API for another entities like "Customer, Student, Product, Book ...", we must not repeat all of the same code again.
+	
+Solution :-
+	
+	Create a REST API for me, 
+	Use my existing JpaRepository(entity, primary key),
+	Give me all of the basic REST API CRUD features for free.
+	
+	Spring Data REST is the solution.
+		Leverages your existing JpaRepository
+		Spring will give you a REST CRUD implementation for free.
+		
+		Helps to minimize boiler-plate REST code.
+		No new coding required.
+		
+		Spring Data REST will scan your project for JpaRepository.
+		Expose REST APIs for each entity type for your JpaRepository.
+		
+	REST Endpoints :-
+		
+		By default, Spring data REST will create endpoints based on entity type.
+		Simple pluralized form -
+			First character of Entity type is lowercase
+			Then just add an "s" to the entity
+			
+	Development Process :-
+		
+		1.	Add Spring Data REST to your Maven POM file.
+				That's it! No coding requried!
+				
+	For Spring Data REST, you only need 3 items -
+		1.	Your entity:  [EntityName]
+		2.	JpaRepository:  [EntityName]Repository extends JpaRepository
+		3.	Maven POM dependency for:  spring-boot-starter-data-rest
+		
+		
+Application Architecture :-
+
+	Before 
+		Employee REST Controller <------------> Employee Service <--------------> Employee Repository <------------> Database
+																						Spring Data JPA 
+																				
+	After
+		Spring Data REST <-----------> Employee Repository <------------> Database
+			/employees						Spring Data JPA
+			
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			
+HATEOAS :-
+
+	Spring Data REST endpoints are HATEOAS compliant.
+		HATEOAS: Hypermedia as the Engine of Application State
+		
+	Hypermedia-driven sites provide information to access REST interfaces
+		think it as meta-data for REST data.
+			For a collection, meta-data includes page size, total elements, pages etc
+			
+	HATEOAS uses Hypertext Application Language (HAL) data format
+		
+	HATEOAS Documentation -
+		https://spring.io/understanding/HATEOAS
+		
+	HAL Documentation -
+		https://en.wikipedia.org/wiki/Hypertext_Application_Language
+		
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Advanced Features :-
+
+Spring Data REST advanced features -
+
+	1.	Pagination, sorting and searching
+	2.	Extending and adding custom queries with JPQL
+	3.	Query Domain Specific Language(Query DSL)
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Configuration, Pagination and Sorting :-
+
+Problem :-
+
+	Spring Data REST does not handle complex puralized forms.
+		In this case, you need to specify plural name.
+		
+	Solution :-
+		Specify plural name/path with an annotation
+		
+
+Pagination :-
+
+	By default, Spring Data REST will return the first 20 elements.
+	Page Size=20
+	
+	You can navigate to the different pages of data using query param
+		http://localhost:8080/employees?page=0
+		http://localhost:8080/employees?page=1
+		.....
+		
+Configuration :-
+
+	Following properties available: application-properties -
+	
+	Name										Description
+		
+	spring.data.rest.base-path					Base path used to expose repository resources
+	spring.data.rest.default-page-size			Default size of pages
+	spring.data.rest.max-page-size				Maximum size of pages
+	
+	Documentation -
+		www.luv2code.com/spring-boot-props
+			Scan for "spring.data.rest.*"
+		
+Sorting :-
+	
+	You can sort by the property names of your entity
+		In our example, we have: firstName, lastName and email
+		
+	Sort by last name(ascending in default)
+		http://localhost:8080/employees?sort=lastName
+		
+	Sort by first name, descending
+		http://localhost:8080/employees?sort=firstName,desc
+		
+	Sort by last name, then first name, ascending
+		http://localhost:8080/employees?sort=lastName,firstName,desc
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
