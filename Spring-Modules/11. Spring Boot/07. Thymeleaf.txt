@@ -1,0 +1,95 @@
+Thymeleaf :-
+	
+	1.	Thymeleaf is a Java template engine.
+	2.	Commonly used to generate the HTML views for web apps.
+	3.	It is a general pupose templating engine
+			Can use Thymeleaf outside of web apps
+			
+	Documentation :-
+		www.thymeleaf.org
+		
+	Thymeleaf template can be an HTML page with some Thymeleaf expressions
+	Include dynamic content from Thymeleaf expressions.
+	
+	Q-> Where is the Thymeleaf template processed?
+	A-> In a web app, thymeleaf is processed on the server.
+		Result included in HTML returned to browser.
+		
+	Thymeleaf vs JSP :-
+	
+		Yes, thymeleaf is similar to JSP.
+			Can be used for web view templates.
+			
+		JSP can only be used in a web environment.
+		Thymeleaf can be used in web or non-web environment.
+		
+Use Cases(non-web) :-
+
+	Email Template
+		When student signs up for a course then send welcome email
+		
+	CSV Template
+		Generate a monthly report as CSV then upload to Google drive
+		
+	PDF Template
+		Generate a travel confirmation PDF then send via email
+		
+# If you need a general purpose template engine (non-web), use Thymeleaf.
+  for web requirement, we can use both Thymeleaf and JSP.
+  
+  Application Architecture :-
+  
+	Web Browser ------> Spring MVC Controller --------> Thymeleaf Template ---------> Web Browser
+	
+	
+Development Process :-
+	
+	1.	Add Thymeleaf to Maven POM file
+	2.	Develop Spring MVC Controller
+	3.	Create Thymeleaf template
+	
+Additional Features :-
+
+	1.	Looping and conditionals
+	2.	CSS and JavaScript integration
+	3.	Template layouts and fragments
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Using CSS with Thymeleaf Templates :-
+
+You have the option of using
+	Local CSS files as part of your project
+	Referencing remote CSS files
+	
+Development Process :-
+
+	1.	Create CSS file
+			Spring Boot will look for static resources in the directory
+			src/main/resources/static
+	2.	Reference CSS in Thymeleaf template
+			th:href="@{[path]}"
+	3.	Apply CSS style
+	
+Spring Boot will search following directories for static resources:
+src/main/resources
+		1.	/META-INF/resources
+		2.	/resources
+		3.	/static
+		4.	/public
+		
+3rd Party CSS Libraries - Bootstrap -
+
+	Local Installation
+	Download Bootstrap file and add to /static/css directory
+	
+	Another way is to provide link for remote files
+	
+
+
+
+
+
+
+
+
