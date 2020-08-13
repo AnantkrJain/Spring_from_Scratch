@@ -1,0 +1,234 @@
+API Requirements :-
+	
+	Create a REST API for the Employee directory
+	
+	REST clients should be able to
+		1.	Get a list of employees
+		2.	Get a single employee by id
+		3.	Add a new employee
+		4.	Update an employee
+		5.	Delete an employee
+		
+	HTTP Method								CRUD Action
+	
+	POST	/api/employees					Create a new employee
+	GET 	/api/employees					Read a list of employees
+	GET	 	/api/employees/{employeeId}		Read a single employee
+	PUT	 	/api/employees					Update an existing employee
+	DELETE	/api/employees					Delete an existing employee
+	
+	Development Process :-
+		
+		1.	Set up Database Dev Environment
+				employee.sql-
+					Create a new database table: employee
+					Load table with sample data.
+		2.	Create Spring Boot project using Spring Initializr
+				https://start.spring.io
+					com.luv2code.springboot
+					cruddemo
+					WEB, JPA, DevTools, mysql driver
+		3.	Get list of employees
+		4.	Get single employee by ID
+		5.	Add a new employee
+		6.	Update an existing employee
+		7.	Delete an existing employee
+		
+	Application Architecture :-
+	
+		1.	Employee REST Controller ----> Employee Service ------> Employee DAO ------> Database
+																		Hibernate
+			Use Spring Boot - Java config no XML
+			
+		2.	Create DAO layer
+				Employee DAO ------> Session Factory -------> Data Source ------> Database
+				
+				Spring Boot will automatically configure your data source for you,
+				Based on entries from Maven pom file
+					JDBC Driver: mysql-connector-java
+					Spring Data(ORM): spring-boot-starter-data-jpa
+				DB connection info from application.properties
+					No need to give JDBC driver class name. 
+					Spring will automatically dtect it based on URL
+				
+				Additional Data Source Properties -
+					
+					Properties are available to configure connection pool etc
+						List of Data Source Properties - 
+							https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#common-application-properties
+							
+							Check for spring.datasource.* to understand data source properties.
+				
+			Auto Data Source Configuration :-
+			
+				Based on configs, Spring Boot will automatically create the beans:
+					DataSource, EntityManager, ...
+				You can then inject these into your app for example your DAO
+				Entity Manager is from Java Persistence API(JPA)
+				
+				In Spring Boot, Hibernate is default implementation of JPA.
+				EntityManager is similar to Hibernate SessionFactory.
+				EntityManager can serve as a wrapper for a Hibernate Session object.
+				We can inject the EntityManager into our DAO.
+				
+JPA :-
+	
+	Java Persistence API (JPA) is standard API for Object-to-Relational-Mapping(ORM).
+	JPA is only specification.
+		Defines a set of interfaces
+		Requires an implementation to be usable
+		
+	JPA Documentation :-
+		https://www.jcp.org/en/jsr/detail?id=338
+		
+JPA - Vendor Implementations :-
+	
+	Most popular implementation of JPA is Hibernate. 
+	
+	Vendor List :-
+		https://en.wikipedia.org/wiki/Jakarta_Persistence
+		
+Benefits of JPA :-
+
+	1.	By having a standard API, you are not locked to vendor's implementation.
+	2.	Maintain portable, flexible code by coding to JPA spec(interfaces)
+	3.	Can theoratically switch vendor implementations
+			For example, if vendor ABC stops supporting their product, you could switch to Vendor XYZ without vendor lock in.
+			
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Various DAO Techniques :-
+
+	1.	Use EntityManager but leverage native Hibernate API
+	2.	Use EntityManager and standard JPA API
+	3.	Spring Data JPA
+	
+	Native Hibernate API :-
+	
+		Development Process :-
+		
+			1.	Update db configs in application.properties
+			2.	Create Employee entity
+			3.	Create DAO interfaces
+			4.	Create DAO implementation
+			5.	Create REST controller to use DAO
+		
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+	Standard JPA API :-
+	
+		Employee REST Controller ----> Employee Service ------> Employee DAO ------> Database
+																		JPA
+		
+		1.	The JPA API methods are similar to Native Hibernate API
+		
+		2.	JPA also supports a query language: JPQL(JPA Query Language)
+				JPQL Documentation -
+					https://docs.oracle.com/javaee/7/tutorial/persistence-querylanguage.htm#BNBTG
+					
+	JPA vs Native Hibernate Methods :-
+	
+		Action						Native Hibernate method		JPA method
+		
+		Create/save new entity		session.save()				entityManager.persist()
+		Retrieve entity by id		session.get()/load()		entityManager.find()
+		Retrieve list of entities	session.createQuery()		entityManager.createQuery()
+		Save or update entity		session.saveOrUpdate()		entityManager.merge()
+		Delete entity				session.delete()			entityManager.remove()
+		
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	Spring Data JPA :-
+		
+		Employee REST Controller ----> Employee Service ------> Employee DAO ------> Database
+																	Spring Data JPA
+	
+		We created DAO for "Employee" entity. If we need to create DAO for another entities "Customer, Student, Product, Book ...", we must not repeat all of the code again.
+		
+		Solution -
+			
+			Create a DAO for me, 
+			plug in my entity type and primary key, 
+			give me all of basic CRUD features for free.
+			
+			Spring Data JPA is the solution.
+				Create a DAO and just plug in your "entity type" and "primary key".
+				Spring will give you a CRUD implementation for free.
+				
+				It helps to minimize boiler-plate DAO code.
+				More than 70% reduction in code depending on use case.
+				
+				JpaRepository -
+				
+					Spring Data JPA provides the interface: JpaRepository
+					Exposes methods(some by inheritance from parents)
+					
+		Development Process :-
+			
+			1.	Extend JpaRepository interface
+					No need for implementing the class
+			2.	Use your repository in your app.
+			
+			JpaRepository Documentation -
+				https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html
+				
+		Advanced Features :-
+		
+			1.	Extending and adding custom queries with JPQL
+			2.	Query Domain Specific Language(Query DSL)
+			3.	Defining custom methods(low-level coding)
+			
+			Advanced Features Documentation -
+				https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.details
+				
+			Java Optional Tutorial -
+				www.luv2code.com/java-optional-tutorial
+		
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	
