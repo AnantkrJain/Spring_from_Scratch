@@ -1,0 +1,19 @@
+Build HTML Tables :-
+
+	Development Process :-
+
+		1.	Create Employee class
+		2.	Create Employee Controller
+		3.	Create Tymeleaf template
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bootstrap CSS :-
+	
+	Development Process :-
+	
+		1.	Get links for remote Bootstrap files
+				Visit Bootstrap website: www.getbootstrap.com
+				Website has instructions on how to 'Get Started'
+		2.	Add links in Thymeleaf template
+		3.	Apply Bootstrap CSS styles
