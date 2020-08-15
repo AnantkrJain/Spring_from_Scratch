@@ -1,0 +1,95 @@
+Application Requirement :-
+
+	Create a Web UI for the Employee Directory
+	
+	Users should be able to 
+		Get a list of employees
+		Add a new employee
+		Update an employee
+		Delete an employee
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Project Setup :-
+
+	We will extend our existing Employee project and add DB integration
+	
+	Add EmployeeService, EmployeeRepository and Employee entity.
+		Available in previous project
+		Created all of this code already from scratch.
+		
+	Only need to create EmployeeController and Thymeleaf templates.
+	
+Development Process :-
+	
+	1.	Get all the employees
+	2.	Add Employee
+			New 'Add Employee' button for list-employees.html
+				Add Employee button will href link to 
+					request mapping /employees/showFormForAdd		
+				Showing Form -
+					In your spring controller,
+						Before you show the form, you must add a model attribute.
+						This is an object that will hold form data for the data binding.
+			Create HTML form for new employee
+			Process form data to save employee
+	3.	Update an Employee
+			Update Button
+			Pre-populate the form
+			Process the form data
+	4.	Delete an Employee
+			Add Delete button/link on page
+			Add controller code for Delete
+	
+	Thymeleaf and Spring MVC Data Binding :-
+	
+		Thymeleaf has special expressions for binding Spring MVC form data
+		Automatically setting/retrieving data from a Java object.
+		
+	Thymeleaf Expressions :-
+	
+	Thymeleaf expressions can help you build the HTML form.
+	
+	Expression		Description
+	
+	th:action 		Location to send form data
+	th:object		Reference to model attribute
+	th:field 		Bind input field to a property on model attribute
+	
+	Documentation :-
+		https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html#creating-a-form
+		
+	Stop duplicate submission :-
+		https://en.wikipedia.org/wiki/Post/Redirect/Get
+		"Post/Redirect/Get" pattern
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Spring Data JPA will parse the method name. 
+It will look for a specific format and pattern.
+Creates appropriate query behind the scenes.
+
+Query Method Documentation :-
+	https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.details
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
